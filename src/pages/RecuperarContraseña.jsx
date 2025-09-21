@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/RecuperarContraseña.css";
 
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
+
 const RecuperarContrasena = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -55,7 +58,7 @@ const RecuperarContrasena = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('${API_BASE_URL}/auth/password/reset/', {
+      const response = await fetch(`${API_BASE_URL}/auth/password/reset/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

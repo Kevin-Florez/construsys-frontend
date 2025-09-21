@@ -23,7 +23,7 @@ import { useAuth } from '../context/AuthContext';
 import { toast } from 'sonner';
 import "../styles/Productos.css";
 
-const API_BASE_URL = "https://construsys-despliegue-iaas.vercel.app/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 const formatCurrency = (value) => {
     const number = parseFloat(value);

@@ -18,7 +18,7 @@ import ProductDetailModal from '../components/ProductDetailModal';
 import { formatCurrency } from '../utils/formatters';
 import '../styles/CatalogoCliente.css';
 
-const API_BASE_URL = "https://construsys-despliegue-iaas.vercel.app/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 const ProductImage = ({ src, alt }) => {
     const [imageSrc, setImageSrc] = useState(src);

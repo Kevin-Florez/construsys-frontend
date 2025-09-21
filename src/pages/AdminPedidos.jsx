@@ -18,7 +18,7 @@ import { useAuth } from "../context/AuthContext";
 import PedidoDetailModal from "../components/PedidoDetailModal"; // Asegúrate que la ruta sea correcta
 import '../styles/AdminPedidos.css'; 
 
-const API_BASE_URL = "https://construsys-despliegue-iaas.vercel.app/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 // --- Funciones de formato usadas por esta tabla ---
 

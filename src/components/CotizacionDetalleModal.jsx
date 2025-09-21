@@ -14,7 +14,7 @@ import { Close as CloseIcon, ShoppingCartCheckout, Info as InfoIcon } from '@mui
 import '../styles/DetalleCotizacion.css'; // Usaremos el CSS para la estética interna del modal
 import Alert from '@mui/material/Alert';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 const getStatusInfo = (status) => {
     switch (status) {

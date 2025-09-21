@@ -12,7 +12,7 @@ import { useAuth } from '../context/AuthContext';
 import '../styles/Compras.css';
 import { toast } from 'sonner';
 
-const API_BASE_URL = "https://construsys-despliegue-iaas.vercel.app/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 const formatCurrency = (value, decimals = 0) => {
     const number = parseFloat(value);

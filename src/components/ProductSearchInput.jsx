@@ -5,7 +5,7 @@ import { Autocomplete, TextField, CircularProgress, Box, Typography } from '@mui
 // ✨ 1. Importamos el hook useAuth
 import { useAuth } from '../context/AuthContext'; 
 
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 const formatCurrency = (value) => {
     const number = parseFloat(value);
@@ -36,7 +36,7 @@ const ProductSearchInput = ({ onProductSelect, label = "Buscar Producto", error,
             // ✨ 3. Usamos el token del contexto para la llamada a la API
             const token = authTokens.access;
             
-            fetch(`${API_BASE_URL}/api/productos/?search=${searchTerm}&activo=true`, {
+            fetch(`${API_BASE_URL}/productos/?search=${searchTerm}&activo=true`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             })
             .then(res => {

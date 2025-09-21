@@ -13,9 +13,9 @@ import {
 import { useAuth } from "../context/AuthContext";
 import "../styles/Usuarios.css"; 
 
-const API_BASE_URL = "http://localhost:8000";
-const API_USUARIOS_ENDPOINT = `${API_BASE_URL}/api/usuarios/`;
-const API_ROLES_ENDPOINT = `${API_BASE_URL}/api/roles-permisos/roles/`;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
+const API_USUARIOS_ENDPOINT = `${API_BASE_URL}/usuarios/`;
+const API_ROLES_ENDPOINT = `${API_BASE_URL}/roles-permisos/roles/`;
 
 const tiposDocumento = [
     { value: "CC", label: "Cédula de Ciudadanía" },

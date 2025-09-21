@@ -15,7 +15,7 @@ import qrBancolombia from '../assets/images/qr-bancolombia.jpg';
 
 import '../styles/checkout.css';
 
-const API_BASE_URL = "https://construsys-despliegue-iaas.vercel.app/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 const FormInput = ({ icon, label, id, error, ...props }) => (
     <div className="form-group">

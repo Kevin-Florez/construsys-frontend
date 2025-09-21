@@ -16,7 +16,7 @@ import '../styles/CreditosClientes.css';
 // --- NUEVO: Importamos el componente de tabla actualizado ---
 import AbonoHistoryTable from "../components/AbonoHistoryTable"; 
 
-const API_BASE_URL = "https://construsys-despliegue-iaas.vercel.app/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 // --- Formateadores (si no los tienes en un archivo utils) ---
 const formatCurrency = (value) => parseFloat(value).toLocaleString('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0, maximumFractionDigits: 0 });

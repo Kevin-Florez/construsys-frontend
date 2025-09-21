@@ -9,7 +9,7 @@ import { Alert, Box } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import '../styles/PedidoStatus.css';
 
-const API_BASE_URL = "https://construsys-despliegue-iaas.vercel.app/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 const getStatusInfo = (status) => {
     switch (status) {

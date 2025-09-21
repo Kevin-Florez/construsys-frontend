@@ -19,7 +19,7 @@ import { useAuth } from '../context/AuthContext';
 import { toast } from 'sonner';
 import "../styles/GestionDevoluciones.css";
 
-const API_BASE_URL = "https://construsys-despliegue-iaas.vercel.app/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 const formatDate = (dateString) => dateString ? new Date(dateString).toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }) : 'N/A';
 
 const getGestionStatusChip = (gestion, esDefectuoso) => {

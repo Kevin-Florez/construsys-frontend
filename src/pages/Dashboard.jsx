@@ -30,7 +30,7 @@ import { es } from 'date-fns/locale';
 
 import "../styles/Dashboard.css";
 
-const API_BASE_URL_DASHBOARD = "${API_BASE_URL}";
+const API_BASE_URL_DASHBOARD = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 const formatCurrency = (value) => {
     const number = parseFloat(value);

@@ -18,8 +18,7 @@ import ProductSearchInput from '../components/ProductSearchInput';
 import SummaryCard from '../components/SummaryCard';
 import '../styles/Ventas.css';
 
-const API_BASE_URL = "https://construsys-despliegue-iaas.vercel.app/api";
-const API_CLIENTES_URL = "http://localhost:8000";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 const formatCurrency = (value) => `$${parseFloat(value).toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
 
@@ -241,7 +240,7 @@ const VentasCreate = () => {
         setSavingCliente(true);
         const payload = { ...newClienteData }; // Datos del formulario de cliente
         try {
-            const response = await fetch(`${API_CLIENTES_URL}/api/clientes/`, {
+            const response = await fetch(`${API_CLIENTES_URL}/clientes/`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }, // ✨ 4. Usar token
                 body: JSON.stringify(payload)

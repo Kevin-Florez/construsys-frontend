@@ -26,7 +26,7 @@ import {
 } from "@/components/ui/table";
 import { formatCurrency } from '../utils/formatters';
 
-const API_BASE_URL = "https://construsys-despliegue-iaas.vercel.app/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 // El componente PedidoListModal no necesita cambios
 function PedidoListModal({ pedidos, onClose, onVerDetalle }) {

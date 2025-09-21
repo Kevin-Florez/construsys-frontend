@@ -30,7 +30,7 @@ const ProfilePage = () => {
     const [showCurrentPassword, setShowCurrentPassword] = useState(false);
     const [showNewPassword, setShowNewPassword] = useState(false);
     const [showConfirmNewPassword, setShowConfirmNewPassword] = useState(false);
-    const API_URL = '${API_BASE_URL}';
+    const API_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
     const evaluatePasswordStrength = (password) => {
         let strength = 0;

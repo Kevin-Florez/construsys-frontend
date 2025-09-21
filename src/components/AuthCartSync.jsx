@@ -19,7 +19,7 @@ const AuthCartSync = () => {
         if (user && !isAuthLoading) {
             console.log("Usuario detectado. Cargando carrito desde la BD...");
             
-            fetch('${API_BASE_URL}/carrito/activo/', {
+            fetch(`${API_BASE_URL}/carrito/activo/`, {
                 headers: { 'Authorization': `Bearer ${authTokens.access}` }
             })
             .then(res => res.json())
@@ -56,7 +56,7 @@ const AuthCartSync = () => {
             const localCart = JSON.parse(localStorage.getItem('cart') || '[]');
             
             if (localCart.length > 0) {
-                fetch('${API_BASE_URL}/carrito/unir/', {
+                fetch(`${API_BASE_URL}/carrito/unir/`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${authTokens.access}` },
                     body: JSON.stringify({ local_cart: localCart })
@@ -92,7 +92,7 @@ const AuthCartSync = () => {
 
         const handler = setTimeout(() => {
             console.log("Sincronizando cambios del carrito con la base de datos...");
-            fetch('${API_BASE_URL}/carrito/actualizar/', {
+            fetch(`${API_BASE_URL}/carrito/actualizar/`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${authTokens.access}` },
                 body: JSON.stringify({ cart: cart })

@@ -14,7 +14,7 @@ import {
 } from "@mui/icons-material";
 import { useAuth } from "../context/AuthContext"; // ✨ 1. Importar el hook de autenticación
 
-const API_BASE_URL = "https://construsys-despliegue-iaas.vercel.app/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 const SeleccionarCliente = () => {
     const navigate = useNavigate();

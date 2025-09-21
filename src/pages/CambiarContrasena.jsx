@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext"; // ✨ 1. Importamos el hook useAuth
 import "../styles/CambiarContrasena.css";
 
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 const CambiarContrasena = () => {
     const navigate = useNavigate();
@@ -120,7 +120,7 @@ const CambiarContrasena = () => {
         }
 
         try {
-            const response = await fetch(`${API_BASE_URL}/api/perfil/cambiar-password/`, {
+            const response = await fetch(`${API_BASE_URL}/perfil/cambiar-password/`, {
                 method: "POST",
                 headers: { 
                     "Content-Type": "application/json", 

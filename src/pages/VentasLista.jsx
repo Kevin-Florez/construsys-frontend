@@ -15,7 +15,7 @@ import { useAuth } from '../context/AuthContext';
 import '../styles/Ventas.css';
 import { MapPin, Store, Truck } from 'lucide-react';
 
-const API_BASE_URL = "https://construsys-despliegue-iaas.vercel.app/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 const formatCurrency = (value) => `$${parseFloat(value).toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
 
 const Estado = styled('span')(({ estado }) => {

@@ -13,8 +13,7 @@ import {
 import { useAuth } from '../context/AuthContext';
 import "../styles/Proveedores.css";
 
-const API_BASE_URL = "http://localhost:8000";
-const API_PROVEEDORES_ENDPOINT = `${API_BASE_URL}/api/proveedores/`;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 const tiposDocumentoPersonaNatural = [
     { value: "CC", label: "Cédula de Ciudadanía (C.C)" },
@@ -149,7 +148,7 @@ const Proveedores = () => {
         if (!token) { logout(); return; }
         setLoading(true);
         try {
-            const response = await fetch(API_PROVEEDORES_ENDPOINT, { 
+            const response = await fetch(`${API_BASE_URL}/proveedores/`, { 
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (!response.ok) {

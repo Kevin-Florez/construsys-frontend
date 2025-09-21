@@ -5,6 +5,9 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext"; // ✨ 1. Importamos el hook de autenticación
 import "../styles/Register.css";
 
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
+
 const Register = () => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -136,7 +139,7 @@ const Register = () => {
         setIsLoading(true);
         try {
             if (currentStep === 1) {
-                const checkDocResponse = await fetch('${API_BASE_URL}/auth/check-documento/', {
+                const checkDocResponse = await fetch(`${API_BASE_URL}/auth/check-documento/`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ tipo_documento: formData.tipo_documento, documento: formData.documento }),
@@ -150,7 +153,7 @@ const Register = () => {
                 } else if (!checkDocResponse.ok) { throw new Error("Error al verificar el documento."); }
             }
             if (currentStep === 2) {
-                const checkEmailResponse = await fetch('${API_BASE_URL}/auth/check-email/', {
+                const checkEmailResponse = await fetch(`${API_BASE_URL}/auth/check-email/`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ correo: formData.correo }),
@@ -201,7 +204,7 @@ const Register = () => {
         setSuccessMessage("");
         
         try {
-            const response = await fetch("${API_BASE_URL}/auth/register/", {
+            const response = await fetch(`${API_BASE_URL}/auth/register/`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),

@@ -16,7 +16,7 @@ import RoomIcon from "@mui/icons-material/Room";
 import { toast } from "sonner";
 import { useAuth } from "../context/AuthContext";
 
-const API_BASE_URL = "https://construsys-despliegue-iaas.vercel.app/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 const formatCurrency = (value) => {
     if (value === null || value === undefined) return '$0';

@@ -13,7 +13,7 @@ import { useAuth } from '../context/AuthContext'; // ✨ 1. Importamos el hook u
 import { toast } from 'sonner'; // Usamos toast para notificaciones
 import '../styles/Creditos.css';
 
-const API_BASE_URL = "https://construsys-despliegue-iaas.vercel.app/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 const formatCurrency = (value) => `$${parseFloat(value).toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
 const formatDate = (dateString) => new Date(dateString).toLocaleDateString('es-CO', { timeZone: 'UTC' });
 

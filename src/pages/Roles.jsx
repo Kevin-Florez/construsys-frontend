@@ -19,7 +19,7 @@ import {
 import { useAuth } from "../context/AuthContext";
 import "../styles/Usuarios.css"; // Reutilizamos los estilos de Usuarios para consistencia
 
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 const ADMINISTRADOR_ROLE_NAME = 'Administrador'; 
 
 // Función mejorada para extraer mensajes de error del backend
@@ -79,8 +79,8 @@ const Roles = () => {
         setLoading(true);
         try {
             const [rolesRes, permsRes] = await Promise.all([
-                fetch(`${API_BASE_URL}/api/roles-permisos/roles/`, { headers: { 'Authorization': `Bearer ${token}` } }),
-                fetch(`${API_BASE_URL}/api/roles-permisos/permisos/`, { headers: { 'Authorization': `Bearer ${token}` } })
+                fetch(`${API_BASE_URL}/roles-permisos/roles/`, { headers: { 'Authorization': `Bearer ${token}` } }),
+                fetch(`${API_BASE_URL}/roles-permisos/permisos/`, { headers: { 'Authorization': `Bearer ${token}` } })
             ]);
 
             if (rolesRes.status === 401 || permsRes.status === 401) {
@@ -165,7 +165,7 @@ const Roles = () => {
         };
         // No enviamos 'activo' en el PUT/POST, se maneja por separado
         
-        const url = editMode ? `${API_BASE_URL}/api/roles-permisos/roles/${selectedRole.id}/` : `${API_BASE_URL}/api/roles-permisos/roles/`;
+        const url = editMode ? `${API_BASE_URL}/roles-permisos/roles/${selectedRole.id}/` : `${API_BASE_URL}/roles-permisos/roles/`;
         const method = editMode ? 'PUT' : 'POST';
 
         try {
@@ -207,7 +207,7 @@ const Roles = () => {
 
         setActionLoading(true);
         try {
-            const response = await fetch(`${API_BASE_URL}/api/roles-permisos/roles/${selectedForDeletion.id}/`, {
+            const response = await fetch(`${API_BASE_URL}/roles-permisos/roles/${selectedForDeletion.id}/`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` },
             });
@@ -247,7 +247,7 @@ const Roles = () => {
         const newStatus = !roleToToggle.activo;
         
         try {
-            const response = await fetch(`${API_BASE_URL}/api/roles-permisos/roles/${roleToToggle.id}/`, {
+            const response = await fetch(`${API_BASE_URL}/roles-permisos/roles/${roleToToggle.id}/`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
                 body: JSON.stringify({ activo: newStatus }),
