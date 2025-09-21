@@ -16,7 +16,7 @@ import { useAuth } from '../context/AuthContext';
 import ProductSearchInput from '../components/ProductSearchInput'; // Asegúrate de que la ruta a este componente es correcta
 import { toast } from 'sonner';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 const formatCurrency = (value) => `$${parseFloat(value).toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
 
 // --- CONSTANTES Y FUNCIONES PARA EL MODAL DE NUEVO CLIENTE ---
