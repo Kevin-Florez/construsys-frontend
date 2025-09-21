@@ -1,0 +1,73 @@
+/* src/styles/DetalleCotizacion.css */
+
+.info-card {
+    background-color: #f8fafc;
+    border-radius: 12px;
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+}
+
+.info-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.status-item {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: rgba(0,0,0,0.03);
+}
+
+.productos-card {
+    background-color: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    height: 100%;
+}
+
+.producto-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+.producto-item:last-child {
+    border-bottom: none;
+}
+
+.total-summary {
+    border-top: 2px solid #e2e8f0;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+}
+
+/* Ajuste para la tarjeta de productos */
+.productos-card {
+  display: inline-block; /* Hace que el box se ajuste al contenido */
+  width: 100%;          /* Que no se rompa el diseño responsivo */
+  height: auto;         /* Alto automático */
+  min-height: unset;    /* Elimina mínimos heredados */
+  box-sizing: border-box;
+}
+
+.coti-dialog .dialog-title {
+    background: linear-gradient(to right, #e0f2fe, #bfdbfe);
+    color: #1e40af;
+    padding: 16px 24px;
+    font-weight: 600;
+    border-bottom: 1px solid #bfdbfe;
+}

@@ -1,0 +1,48 @@
+/* Estilos para el texto de estado en la TABLA */
+.estado-label {
+    font-weight: 500;
+    font-size: 0.85rem;
+    padding: 6px 10px; 
+    border-radius: 12px;
+    display: inline-block;
+    min-width: 70px;
+    text-align: center;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.estado-label.activo {
+    background-color: #dcfce7; 
+    color: #10b981; 
+}
+
+.estado-label.inactivo {
+    background-color: #fee2e2;
+    color: #ef4444;
+}
+
+.estado-clickable {
+    cursor: pointer;
+    user-select: none; 
+}
+
+.estado-clickable:hover {
+    filter: brightness(95%); 
+}
+
+
+/* ❌ CORTA Y ELIMINA ESTO del archivo específico del componente ❌ */
+.confirm-estado .MuiDialogTitle-root {
+    color: #1f5e0d;
+    background-color: #f2fef2;
+    border-bottom: 1px solid #d4f4d4;
+}
+
+
+.search-input {
+    min-width: 300px !important;
+    flex-grow: 1 !important;
+}
+
+.search-icon {
+    color: #3b82f6 !important;
+}

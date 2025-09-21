@@ -1,0 +1,118 @@
+/* src/styles/GestionDevoluciones.css */
+
+.devoluciones-container {
+    padding: 24px;
+    background-color: #f8fafc;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    max-width: 95%;
+    margin: 24px auto;
+}
+
+.devoluciones-header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1e40af;
+    margin-bottom: 24px;
+}
+
+.devoluciones-table th {
+    background-color: #eef2ff;
+    color: #312e81;
+    font-weight: 600;
+    padding: 12px 16px;
+}
+
+.devoluciones-table td {
+    padding: 12px 16px;
+    color: #475569;
+    vertical-align: middle;
+}
+
+.devoluciones-table tr:hover {
+    background-color: #f8fafc;
+}
+
+/* --- Estilos para el Modal de Detalle --- */
+.detail-dialog .MuiDialogTitle-root {
+    background: linear-gradient(to right, #e0f2fe, #bfdbfe);
+    color: #1e40af;
+    font-weight: 600;
+}
+
+.detail-dialog .MuiDialogContent-root {
+    background-color: #fbfdff;
+}
+
+.detail-section {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.detail-section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #334155;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* --- INICIO DE CORRECCIÓN DE ESTILOS --- */
+.detail-item {
+    display: flex;
+    align-items: baseline; /* Alinea mejor los textos */
+    padding: 6px 0;
+}
+
+.detail-item-label {
+    display: flex;
+    align-items: center;
+    color: #64748b;
+    margin-right: 8px; /* Espacio entre etiqueta y valor */
+    white-space: nowrap; 
+}
+
+.detail-item-value {
+    font-weight: 500;
+    color: #334155;
+    text-align: left; /* Alineado a la izquierda */
+}
+/* --- FIN DE CORRECCIÓN DE ESTILOS --- */
+
+
+.devolucion-productos-list {
+    list-style: none;
+    padding-left: 16px;
+    margin: 0;
+}
+
+.devolucion-productos-list li {
+    padding: 4px 0;
+    color: #475569;
+}
+
+/* --- Estilos para el Modal de Recepción --- */
+.recepcion-item-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.recepcion-item-header {
+    font-weight: 600;
+    color: #1e40af;
+    margin-bottom: 16px;
+    font-size: 1.2rem;
+}
+
+.ñññ .MuiTableCell-head {
+  text-transform: none !important;
+}

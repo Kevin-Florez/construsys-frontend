@@ -1,0 +1,328 @@
+/* src/components/CartSidebar.css */
+
+/* El Overlay que oscurece el fondo */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease;
+  /* 👇 CAMBIO AQUÍ: Añadir !important */
+  z-index: 1200 !important; 
+}
+
+/* El contenedor principal del carrito */
+.cart-sidebar {
+  position: fixed;
+  top: 0; /* Aseguramos que esté arriba para que cubra todo */
+  right: 0;
+  width: 95%;
+  max-width: 420px;
+  height: 100%; /* Ocupa toda la altura */
+  background-color: #ffffff;
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  /* 👇 CAMBIO AQUÍ: Añadir !important */
+  z-index: 1201 !important;
+}
+
+.cart-sidebar.open {
+  right: 0;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cart-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.cart-close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: #6b7280;
+  border-radius: 999px;
+}
+.cart-close-button:hover {
+  background-color: #f3f4f6;
+}
+
+.cart-items {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+/* --- Estado de Carrito Vacío --- */
+.empty-cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+}
+
+.empty-cart-icon {
+  color: #9ca3af;
+  margin-bottom: 1rem;
+}
+
+.empty-cart-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.empty-cart-text {
+  color: #6b7280;
+  max-width: 280px;
+  margin-bottom: 1.5rem;
+}
+
+.empty-cart-button {
+  background-color: #1e3a8a;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.empty-cart-button:hover {
+  background-color: #1e40af;
+}
+
+/* --- Items del Carrito --- */
+.cart-item {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.cart-item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-name {
+  font-weight: 600;
+  margin-bottom: auto; /* Empuja el precio y controles hacia abajo */
+}
+
+.cart-item-price-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.cart-item-price {
+  font-weight: 500;
+  color: #374151;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+.quantity-button {
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #4b5563;
+}
+.quantity-button:disabled {
+  color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.quantity-value {
+  padding: 0 0.75rem;
+  font-weight: 500;
+}
+
+.remove-item-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  align-self: flex-start;
+  padding: 0.25rem;
+}
+.remove-item-button:hover {
+  color: #ef4444; /* red-500 */
+}
+
+
+/* --- Footer del Carrito --- */
+.cart-footer {
+  padding: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+}
+
+/* ✨ INICIO DE LA CORRECCIÓN ✨ */
+.cart-summary {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Espacio entre las líneas */
+  margin-bottom: 1.5rem;
+  color: #4b5563;
+}
+
+.cart-summary-line {
+  display: flex;
+  justify-content: space-between; /* <-- La clave para la alineación */
+  align-items: center;
+  width: 100%;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #111827;
+  margin-top: 0.5rem;
+}
+/* ✨ FIN DE LA CORRECCIÓN ✨ */
+
+.checkout-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  background-color: #1e3a8a;
+  color: white;
+  padding: 0.875rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.checkout-button:hover {
+  background-color: #1e40af;
+}
+
+
+/* Pega esto al final de tu archivo CartSidebar.css */
+
+.cart-item-price-controls {
+  display: flex;
+  flex-direction: row;   /* ahora botones y precio van en fila */
+  align-items: center;
+  gap: 16px;             /* separación entre cantidad y precio */
+  margin-left: auto;     /* mantiene todo alineado a la derecha */
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantity-button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.quantity-button:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.quantity-value {
+  min-width: 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.cart-item-pricing {
+  display: flex;
+  flex-direction: column;   /* subtotal arriba, unitario abajo */
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.item-subtotal {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.item-unit-price {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+
+/* src/components/ui/CartSidebar.css */
+
+/* ... (tu CSS existente) ... */
+
+.cart-item-image,
+.cart-item-name {
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.cart-item-image:hover,
+.cart-item-name:hover {
+  opacity: 0.8; /* Ligeramente transparente al pasar el mouse */
+}
+
+/* Para el nombre, un subrayado sutil puede funcionar bien */
+.cart-item-name:hover {
+  text-decoration: underline;
+}

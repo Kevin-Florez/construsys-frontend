@@ -1,0 +1,574 @@
+/* src/styles/Catalogo.css (Versión Renovada) */
+
+/* --- Contenedor Principal --- */
+.catalogo-container-new {
+  background-color: #fff;
+  font-family: sans-serif;
+}
+
+/* --- Hero Section --- */
+.hero-section-new {
+  background-color: #1942b4; /* Equivalente a bg-blue-900 */
+  border-bottom: 1px solid #1e40af;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+.hero-content {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.hero-title-new {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+}
+.hero-description-new {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Barra de Búsqueda Principal --- */
+.search-bar-section {
+  background-color: #f8fafc;
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  
+  /* ✨ CORRECCIÓN 1: Se pegará justo debajo del Header de 64px */
+  top: 64px;
+  
+  z-index: 20;
+}
+.page-search-container {
+  max-width: 48rem;
+  margin: 0 auto;
+  position: relative;
+}
+.page-search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+.page-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.875rem 1rem 0.875rem 3rem;
+  font-size: 1rem;
+  color: #1a202c;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.page-search-input::placeholder {
+  color: #94a3b8;
+}
+.page-search-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* --- Main Content Layout --- */
+.main-content-section {
+  padding: 2rem 1rem 4rem;
+}
+.main-content-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+}
+@media (min-width: 1024px) {
+  .main-content-grid {
+    grid-template-columns: 280px 1fr;
+  }
+}
+
+/* --- Filter Sidebar --- */
+.filter-sidebar-new {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  position: sticky;
+
+  /* ✨ CORRECCIÓN 2: Se pegará debajo del Header (64px) Y de la barra de búsqueda (aprox. 90px) */
+  /* 64px (Header) + 90px (Search Bar) = 154px */
+  top: 190px;
+}
+.filter-header-new {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+.filter-title-new {
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.filter-content-new {
+  padding: 1.5rem;
+}
+.category-search-container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.category-search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+.category-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.375rem;
+}
+.filter-buttons-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.filter-button-new {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+}
+.filter-button-new:hover {
+  background-color: #f1f5f9;
+}
+.filter-button-new.active {
+  background-color: #e2e8f0;
+  font-weight: 500;
+}
+.no-category-found {
+  font-size: 0.875rem;
+  color: #64748b;
+  font-style: italic;
+  padding: 0.5rem;
+}
+
+
+/* --- Products Grid --- */
+.products-grid-new {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+/* --- Product Card --- */
+.product-card-new {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+}
+.product-card-new:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.product-card-header-new {
+  padding: 0;
+  width: 100%;
+  height: 12rem;
+}
+.product-card-image-new {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.product-card-content-new {
+  padding: 1rem;
+  flex-grow: 1;
+}
+.product-card-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #374151;
+  background-color: #f3f4f6;
+  border-radius: 9999px;
+  margin-bottom: 0.5rem;
+}
+.product-card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.product-card-description {
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+.product-card-footer-new {
+  padding: 1rem;
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.product-card-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+.product-card-button {
+  padding: 0.5rem 1rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+.product-card-button:hover {
+  background-color: #1d4ed8;
+}
+
+/* --- No results --- */
+.no-results-container {
+  text-align: center;
+  padding: 4rem 0;
+}
+.no-results-text {
+  font-size: 1.25rem;
+  color: #64748b;
+}
+.no-results-icon {
+  color: #cbd5e1;
+  margin-bottom: 1rem;
+}
+
+
+/* --- Estilos para el Carrito (Añadir al final del archivo) --- */
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 90%;
+  max-width: 380px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+}
+
+.cart-sidebar.open {
+  transform: translateX(0);
+}
+
+.cart-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.cart-close-button {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: #64748b;
+  padding: 0;
+}
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.empty-cart {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: #64748b;
+  text-align: center;
+}
+
+.empty-cart svg {
+  color: #ccc;
+  margin-bottom: 1rem;
+  width: 48px;
+  height: 48px;
+}
+
+.cart-item {
+  display: flex;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f1f5f9;
+  position: relative;
+}
+
+.cart-item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 1rem;
+  border: 1px solid #f1f5f9;
+}
+
+.cart-item-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cart-item-name {
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem 0;
+  color: #0f172a;
+  font-weight: 500;
+}
+
+.cart-item-price {
+  font-size: 0.875rem;
+  color: #374151;
+  margin: 0 0 0.5rem 0;
+}
+
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantity-button {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+.quantity-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantity-value {
+  min-width: 24px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.remove-item-button {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px;
+}
+.remove-item-button:hover {
+  color: #ef4444;
+}
+
+.cart-footer {
+  padding: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.checkout-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: #1e293b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+  font-size: 16px;
+}
+.checkout-button:hover {
+  background: #0f172a;
+}
+
+.cart-floating-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #1e293b;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: transform 0.2s;
+}
+.cart-floating-button:hover {
+  transform: scale(1.1);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ef4444;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Añade esto al final de tu Catalogo.css */
+
+/* --- Animación para el botón del carrito --- */
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-8deg) scale(1.15);
+  }
+  75% {
+    transform: rotate(8deg) scale(1.15);
+  }
+}
+
+.cart-floating-button.just-added {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+/* Añadir al final de src/styles/CatalogoCliente.css */
+
+.product-card-stock {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 0.75rem; /* Espacio para separarlo de la descripción */
+}
+
+.product-card-stock.stock-available {
+  color: #166534; /* Verde oscuro */
+}
+
+.product-card-stock.stock-low {
+  color: #c2410c; /* Naranja oscuro */
+}
+
+.product-card-stock.stock-out {
+  color: #b91c1c; /* Rojo oscuro */
+}
+
+.product-card-button-disabled {
+  padding: 0.5rem 1rem;
+  background-color: #cbd5e1; /* Gris */
+  color: #64748b;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: not-allowed;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+/* Añade esto al final de tu archivo src/styles/CatalogoCliente.css */
+
+.category-filter-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Espacio entre cada checkbox */
+}
+
+.category-filter-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.category-filter-item label {
+  font-size: 0.9rem;
+  color: #374151;
+  cursor: pointer;
+  flex-grow: 1;
+}
+
+.category-checkbox {
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 0.25rem;
+  border: 1px solid #9ca3af;
+  cursor: pointer;
+  accent-color: #2563eb; /* Color del check */
+}
+
+.category-checkbox:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}

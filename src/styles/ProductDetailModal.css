@@ -1,0 +1,38 @@
+/* ... otros estilos del modal ... */
+
+.main-image-container {
+    /* Contenedor principal de la imagen */
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Esto crea un contenedor cuadrado */
+    background-color: #f8f9fa; /* Un fondo sutil para el espacio vacío */
+    border-radius: 0.5rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.main-image {
+    /* La imagen en sí */
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* ¡La misma solución! */
+    display: block;
+}
+
+.thumbnail-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover; /* Aquí 'cover' suele funcionar bien porque son pequeños */
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.thumbnail-image.active {
+    border-color: #007bff; /* Un color de tu marca */
+}
+
+/* ... resto de tus estilos ... */

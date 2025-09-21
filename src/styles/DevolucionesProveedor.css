@@ -1,0 +1,101 @@
+/* src/styles/DevolucionesProveedor.css */
+
+.dev-prov-container {
+    padding: 24px;
+    background-color: #f8fafc;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    max-width: 95%;
+    margin: 24px auto;
+}
+
+.dev-prov-title-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e0e7ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.dev-prov-title-header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1e40af;
+    margin: 0;
+}
+
+.dev-prov-title-header .add-button {
+    background: linear-gradient(45deg, #2563eb, #3b82f6) !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+    transition: all 0.3s ease !important;
+    text-transform: none !important;
+    color: white !important;
+    white-space: nowrap;
+}
+
+.dev-prov-title-header .add-button:hover {
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4) !important;
+    transform: translateY(-2px) !important;
+    background: linear-gradient(45deg, #1d4ed8, #3b82f6) !important;
+}
+
+.dev-prov-table {
+    margin-top: 16px;
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dev-prov-table th {
+    background-color: #dbeafe; 
+    color: #1e40af; 
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 16px;
+    border-bottom: 2px solid #bfdbfe;
+}
+
+.dev-prov-table td {
+    padding: 16px;
+    color: #475569;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.95rem;
+}
+
+.dev-prov-table tr:hover {
+    background-color: #f0f9ff; 
+}
+
+/* Clases para el componente del formulario */
+.dev-prov-form-container {
+    padding: 24px;
+}
+
+.dev-prov-form-paper {
+    padding: 24px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.no-data { 
+    padding: 32px !important; 
+    color: #94a3b8 !important; 
+    font-style: italic; 
+}
+
+.loading-indicator { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 40px;
+}
+
+
+
+.dev-prov-table .MuiTableCell-head {
+  text-transform: none !important;
+}

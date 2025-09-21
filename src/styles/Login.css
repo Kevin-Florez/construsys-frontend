@@ -1,0 +1,563 @@
+/* Login.css - Diseño moderno y profesional para formulario de login */
+
+/* Variables globales de colores y fuentes */
+:root {
+  /* Paleta de colores principal */
+  --primary-color: #3a6df0;
+  --primary-dark: #2951b9;
+  --primary-light: #ebf0ff;
+  --secondary-color: #5d7290;
+  
+  /* Colores de estado */
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+  --warning-color: #f39c12;
+  
+  /* Colores neutrales */
+  --bg-light: #ffffff;
+  --bg-off-white: #f9fafc;
+  --bg-gray-light: #f1f4f8;
+  --text-dark: #2d3748;
+  --text-medium: #4a5568;
+  --text-light: #718096;
+  --border-color: #e2e8f0;
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  /* Espaciado */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  
+  /* Bordes */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  
+  /* Transiciones */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow: 0.4s ease;
+}
+
+/* Estilos base */
+[data-page='login'] {
+  background-color: var(--bg-off-white);
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  box-sizing: border-box; /* Para que el padding no afecte el tamaño total */
+}
+
+.login-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: var(--spacing-xl) auto;
+  perspective: 1000px;
+}
+
+.login-card {
+  background-color: var(--bg-light);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  overflow: hidden;
+  min-height: 520px;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+
+body[data-page="login"] {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffffff00, #2574fc57) !important;
+}
+
+.login-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Columna izquierda (información) */
+.login-info {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  padding: var(--spacing-xl);
+  width: 36%; /* Ajusta según necesidad, o usa flex-basis */
+  min-width: 300px; /* Evita que se encoja demasiado */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.login-info::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+.login-branding {
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xl);
+}
+
+.logo-icon {
+  font-size: 1.75rem;
+  margin-right: var(--spacing-sm);
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  letter-spacing: -0.5px;
+}
+
+.login-branding h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin: 0 0 var(--spacing-md);
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.login-branding p {
+  font-size: 1rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.info-bottom {
+  position: relative;
+  z-index: 1;
+}
+
+.login-benefits {
+  margin-bottom: var(--spacing-xl);
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.benefit-icon {
+  margin-right: var(--spacing-md);
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+}
+
+.register-prompt {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.text-button {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  cursor: pointer;
+  margin-left: var(--spacing-xs);
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.text-button::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: var(--spacing-sm);
+  right: var(--spacing-sm);
+  height: 1px;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform var(--transition-fast);
+  transform-origin: right;
+}
+
+.text-button:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Columna derecha (formulario) */
+.login-form-container {
+  flex: 1;
+  padding: var(--spacing-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-form h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 var(--spacing-xl);
+  color: var(--text-dark);
+  text-align: center;
+}
+
+/* Grupos de formulario */
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.login-label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-medium);
+}
+
+.required-asterisk {
+  color: var(--error-color);
+  margin-left: 2px;
+}
+
+.input-container {
+  position: relative; /* Necesario para posicionar el icono dentro */
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px 16px; /* Padding base para campos sin icono interno o a la izquierda del icono */
+  font-size: 0.95rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  box-sizing: border-box; /* --- CORRECCIÓN IMPORTANTE --- */
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(58, 109, 240, 0.15);
+}
+
+.login-input::placeholder {
+  color: var(--text-light);
+  opacity: 0.7;
+}
+
+/* Validación de campos */
+.login-input.valid {
+  border-color: var(--success-color);
+  /* Se elimina padding-right: 40px; para evitar que campos sin icono (ej. correo) cambien de tamaño.
+     Si se usara un icono de validación genérico DENTRO del input, este padding debería
+     estar en .login-input base o ser manejado cuidadosamente. */
+}
+
+.login-input.invalid {
+  border-color: var(--error-color);
+  /* Misma lógica que para .valid con respecto al padding-right */
+}
+
+/* --- INICIO: Estilos específicos para el campo de CONTRASEÑA y su icono --- */
+/* Asegura espacio para el icono del ojo en el campo de contraseña */
+.login-input[name="password"] {
+  padding-right: 45px; /* Espacio reservado para el icono del ojo */
+}
+
+/* Mantener el padding-right para el icono del ojo incluso si se añade .valid o .invalid al campo de contraseña */
+.login-input[name="password"].valid,
+.login-input[name="password"].invalid {
+  padding-right: 45px; /* Mantiene el espacio para el ojo, solo cambia el borde */
+}
+
+.password-toggle-icon {
+  position: absolute;
+  top: 50%;
+  right: 15px; /* Ajusta esto según el tamaño de tu icono y el padding del input */
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.2rem; /* Tamaño del emoji/icono */
+  color: var(--text-light);
+  user-select: none; /* Evita que el texto del icono sea seleccionable */
+  z-index: 2; /* Para asegurar que esté sobre el input si hay algún problema de capas */
+  padding: 4px; /* Opcional: Aumenta el área de clic del icono */
+}
+
+.password-toggle-icon:hover {
+  color: var(--text-medium);
+}
+
+.password-toggle-icon:focus-visible { /* For accessibility with keyboard navigation */
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: var(--border-radius-sm);
+}
+/* --- FIN: Estilos para el icono del ojo --- */
+
+.login-input.valid:focus { /* Estilo de foco para campo válido */
+  border-color: var(--success-color); /* Mantiene el color de borde de éxito */
+  box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.15); /* Sombra de éxito */
+}
+
+.login-input.invalid:focus { /* Estilo de foco para campo inválido */
+  border-color: var(--error-color); /* Mantiene el color de borde de error */
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15); /* Sombra de error */
+}
+
+.field-error {
+  display: block; /* Asegura que ocupe su propia línea */
+  color: var(--error-color);
+  font-size: 0.8rem; /* Ajustado para consistencia con Register.css si se desea */
+  margin-top: var(--spacing-xs);
+  font-weight: 500;
+}
+
+/* Mensajes de error y éxito generales del formulario */
+.error-message, .success-message {
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-lg);
+  font-size: 0.9rem;
+  font-weight: 500;
+  animation: fadeIn var(--transition-normal);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.error-message {
+  background-color: rgba(231, 76, 60, 0.1);
+  color: var(--error-color);
+  border-left: 3px solid var(--error-color);
+}
+
+.success-message {
+  background-color: rgba(46, 204, 113, 0.1);
+  color: var(--success-color);
+  border-left: 3px solid var(--success-color);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Enlace de olvidé mi contraseña */
+.forgot-password {
+  text-align: right;
+  margin-bottom: var(--spacing-lg); /* Ajustado para más espacio antes del botón */
+}
+
+.forgot-link {
+  color: var(--primary-color);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.forgot-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Botón de login */
+.login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background-color: var(--primary-color);
+  color: white;
+  border: none; /* O 1px solid transparent si se quiere mantener altura exacta con otros botones bordeados */
+  box-shadow: 0 2px 4px rgba(58, 109, 240, 0.3);
+  margin-top: var(--spacing-md); /* Re-añadido si se quitó de forgot-password o se necesita más */
+}
+
+.login-button:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(58, 109, 240, 0.4);
+}
+
+.button-icon {
+  margin-left: var(--spacing-sm);
+  font-size: 1.1rem;
+}
+
+/* Estado de carga */
+.login-button.loading,
+.login-button:disabled { /* Estilo unificado para deshabilitado/cargando */
+  background-color: var(--secondary-color); /* Un color más neutral para deshabilitado */
+  cursor: not-allowed;
+  opacity: 0.7; /* Más opacidad para mejor legibilidad */
+  box-shadow: none; /* Quitar sombra cuando está deshabilitado */
+}
+
+.login-button.loading:hover { /* Evitar cambio de hover en estado de carga */
+    transform: none;
+    box-shadow: none;
+}
+
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.8s linear infinite;
+  margin-right: var(--spacing-sm);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Animación de entrada del formulario (opcional) */
+/* Aplicado a hijos directos del form, excluyendo el título h2 */
+.login-form > *:not(h2) {
+  animation: slideIn var(--transition-normal) forwards; /* 'forwards' mantiene el estado final */
+  opacity: 0; /* Inicia invisible para la animación */
+}
+
+/* Puedes añadir un pequeño delay escalonado si quieres */
+.login-form .form-group:nth-of-type(1) { animation-delay: 0.1s; }
+.login-form .form-group:nth-of-type(2) { animation-delay: 0.2s; }
+.login-form .forgot-password { animation-delay: 0.3s; }
+.login-form .login-button { animation-delay: 0.4s; }
+
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive */
+@media (max-width: 940px) {
+  .login-card {
+    flex-direction: column;
+  }
+  
+  .login-info {
+    width: 100%;
+    min-width: auto; /* Permitir que se encoja */
+    padding: var(--spacing-lg);
+  }
+  
+  .login-branding h1 {
+    font-size: 1.75rem;
+  }
+  
+  .login-benefits {
+    display: flex;
+    justify-content: space-around; /* Distribuir mejor en móvil */
+    flex-wrap: wrap;
+    margin: var(--spacing-lg) 0;
+  }
+  
+  .benefit-item {
+    margin-bottom: var(--spacing-sm); /* Espacio si se envuelven */
+    flex-basis: 45%; /* Intentar que quepan dos por línea */
+  }
+}
+
+@media (max-width: 640px) {
+  [data-page='login'] {
+    padding: var(--spacing-sm);
+    align-items: flex-start; /* Permitir scroll */
+  }
+  
+  .login-container {
+    margin: var(--spacing-md) auto;
+  }
+  
+  .login-card {
+    border-radius: var(--border-radius-md);
+    min-height: auto; /* Ajustar altura al contenido */
+  }
+  
+  .login-form-container {
+    padding: var(--spacing-lg);
+  }
+  
+  .login-benefits {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .benefit-item {
+    margin-bottom: var(--spacing-sm);
+    flex-basis: auto;
+  }
+}
+
+
+.login-form-container {
+    position: relative; /* Necesario para posicionar el botón dentro de este contenedor */
+}
+
+.back-to-home-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    padding: 8px;
+}
+
+.back-to-home-button:hover {
+    color: #333;
+    text-decoration: underline;
+}

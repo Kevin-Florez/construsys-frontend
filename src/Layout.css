@@ -1,0 +1,62 @@
+/* src/Layout.css */
+.layout-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f8fafc; /* Un fondo aún más claro */
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1200; /* Sidebar siempre MÁS encima */
+    transition: width 0.15s ease-out;
+    /* Los demás estilos vienen de Sidebar.css */
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+    min-height: 100vh;
+    transition: margin-left 0.15s ease-out;
+    box-sizing: border-box;
+    
+    /* ✨ LÍNEA ELIMINADA: position: relative; */
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    padding-top: 84px; /* 64px del Header + 20px de espacio */
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Ajustes de margen basados en el estado del Sidebar */
+.layout-container.sidebar-open .main-wrapper {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+}
+
+.layout-container.sidebar-closed .main-wrapper {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+}
+
+/* Estilos para pantallas más pequeñas */
+@media (max-width: 1024px) {
+    .layout-container.sidebar-open .main-wrapper,
+    .layout-container.sidebar-closed .main-wrapper {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .main-content {
+       padding: 15px;
+       padding-top: 79px; /* 64 + 15 */
+    }
+}

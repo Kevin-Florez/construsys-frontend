@@ -1,0 +1,327 @@
+/* src/styles/ProfilePage.css */
+
+/* ... (tus variables :root se mantienen) ... */
+:root {
+    --primary-color: #3a6df0; --primary-dark: #2951b9; --primary-light: #ebf0ff;
+    --secondary-color: #5d7290; --success-color: #2ecc71; --success-light: rgba(46, 204, 113, 0.1);
+    --error-color: #e74c3c; --error-light: rgba(231, 76, 0, 0.1); /* Corregido alfa en error-light */
+    --warning-color: #f39c12;
+    --bg-light: #ffffff; --bg-off-white: #f9fafc; --bg-gray-light: #f1f4f8;
+    --text-dark: #2d3748; --text-medium: #4a5568; --text-light: #718096;
+    --border-color: #e2e8f0; --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --spacing-xs: 4px; --spacing-sm: 8px; --spacing-md: 16px;
+    --spacing-lg: 24px; --spacing-xl: 32px; --border-radius-sm: 4px;
+    --border-radius-md: 8px; --border-radius-lg: 12px;
+    --transition-fast: 0.15s ease; --transition-normal: 0.25s ease;
+    --header-height: 64px; /* Definir altura del header como variable */
+}
+
+/*
+  Asegúrate de tener esto globalmente en tu index.css o App.css
+  para evitar problemas de tamaño con padding/border:
+*/
+/*
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; // Previene scroll horizontal en el body si es mínimo
+  }
+*/
+
+.profile-page-wrapper {
+    width: 100%;
+    /* Eliminamos padding y background de aquí, deben ser manejados por .main-content de Layout.css
+       o por el .profile-container si necesitas un fondo distinto para el contenido del perfil */
+    box-sizing: border-box; /* Siempre bueno tenerlo */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.profile-container {
+    max-width: 1100px;
+    margin: 0 auto; /* Centrar el contenido */
+    padding: var(--spacing-md) 0; /* Un poco de padding vertical, sin padding horizontal aquí */
+    color: var(--text-dark);
+}
+
+.profile-container h2 {
+    font-size: 1.8rem; /* Ligeramente más pequeño */
+    font-weight: 700;
+    margin: 0 0 var(--spacing-md); /* Ajustar margen */
+    color: var(--primary-dark);
+    text-align: left;
+    padding-bottom: var(--spacing-sm);
+}
+.profile-container .profile-subtitle {
+    text-align: left;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-lg);
+    font-size: 0.95rem; /* Ligeramente más pequeño */
+}
+
+.profile-section-paper {
+    padding: var(--spacing-lg) !important;
+    border-radius: var(--border-radius-lg) !important;
+    /* ✨ QUITADO: height: 100%; Esto puede causar problemas. Dejar que el contenido defina la altura. */
+    /* El Grid item con alignItems="stretch" (default) hará que los papers en la misma fila tengan alturas visuales similares si es posible. */
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-light) !important;
+    box-shadow: var(--shadow-md) !important;
+    width: 100%; /* Asegurar que el Paper ocupe su Grid item */
+    box-sizing: border-box;
+}
+
+.profile-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Para que el botón se vaya abajo */
+}
+
+.profile-form h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-color); /* Borde más sutil */
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-medium);
+}
+
+/* Estilos de inputs y select se mantienen como en la respuesta anterior */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="password"],
+.form-group select {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+    box-sizing: border-box; /* Importante */
+}
+
+.input-wrapper-profile-password input { /* Asegura que el padding-right se aplique */
+    padding-right: 40px !important;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(58, 109, 240, 0.15);
+}
+
+.form-group input[disabled] {
+    background-color: var(--bg-gray-light) !important;
+    color: var(--text-light) !important;
+    cursor: not-allowed;
+}
+
+.btn-submit {
+    margin-top: var(--spacing-md); /* O `auto` si el form es flex-grow */
+    /* ...el resto de estilos de btn-submit se mantienen ... */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 2px 4px rgba(58, 109, 240, 0.3);
+    text-transform: none;
+}
+.btn-submit:hover:not(:disabled) {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(58, 109, 240, 0.4);
+}
+.btn-submit:disabled {
+    background-color: var(--secondary-color);
+    cursor: not-allowed;
+    opacity: 0.7;
+    box-shadow: none;
+}
+
+
+.alert {
+    /* ... estilos de alert se mantienen ... */
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: left;
+    animation: fadeIn var(--transition-normal);
+}
+.alert-success {
+    background-color: var(--success-light);
+    color: var(--success-color);
+    border-left: 4px solid var(--success-color);
+}
+.alert-danger {
+    background-color: var(--error-light);
+    color: var(--error-color);
+    border-left: 4px solid var(--error-color);
+}
+
+
+.loading-message, .error-message-global {
+    /* ... estilos se mantienen ... */
+    text-align: center; padding: var(--spacing-lg); font-size: 1.1rem;
+    border-radius: var(--border-radius-md); margin: var(--spacing-xl) auto;
+    max-width: 600px;
+}
+.error-message-global {
+    color: var(--error-color); background-color: var(--error-light); border: 1px solid var(--error-color);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.input-wrapper-profile-password {
+    position: relative;
+    width: 100%;
+}
+
+.password-toggle-icon-profile {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    user-select: none;
+    line-height: 1;
+    padding: var(--spacing-xs);
+    z-index: 2;
+}
+.password-toggle-icon-profile:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 959px) { /* md breakpoint de MUI */
+    .profile-section-paper {
+        margin-bottom: var(--spacing-lg); /* Espacio entre secciones cuando se apilan */
+    }
+}
+
+@media (max-width: 600px) { /* sm breakpoint de MUI */
+    .profile-page-wrapper {
+        padding: var(--spacing-sm);
+    }
+    .profile-container h2 {
+        font-size: 1.6rem;
+    }
+    .profile-form h3 {
+        font-size: 1.15rem;
+    }
+}
+
+/* Reutilizar clases de Register.css si es posible, o definirlas aquí */
+.input-wrapper-profile-password { /* Ya lo tenías, asegurando que el input tenga espacio */
+    position: relative;
+    width: 100%;
+}
+
+.password-toggle-icon-profile { /* Ya lo tenías, ajustado para emojis */
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2rem; /* Ajusta el tamaño del emoji si es necesario */
+    color: var(--text-light);
+    user-select: none;
+    line-height: 1;
+    padding: var(--spacing-xs);
+    z-index: 2;
+}
+.password-toggle-icon-profile:hover {
+    color: var(--primary-color);
+}
+
+
+/* Estilos para el medidor de contraseña (inspirados en Register.css) */
+.password-strength {
+    display: block;
+    width: 100%;
+    margin-top: var(--spacing-sm);
+    box-sizing: border-box;
+}
+
+.strength-meter {
+    height: 5px; /* Un poco más grueso */
+    background-color: var(--bg-gray-light);
+    border-radius: 100px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-xs);
+}
+
+.strength-value {
+    height: 100%;
+    border-radius: 100px;
+    transition: width var(--transition-normal), background-color var(--transition-normal);
+}
+
+.strength-0 { background-color: transparent; }
+.strength-1 { background-color: var(--error-color); } /* Débil */
+.strength-2 { background-color: var(--warning-color); } /* Moderada */
+.strength-3 { background-color: #27ae60; } /* Fuerte (un verde agradable) */
+.strength-4 { background-color: var(--success-color); } /* Muy Fuerte */
+
+.strength-text {
+    font-size: 0.8rem; /* Consistente con field-error */
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+/* Para mensajes de error de campo individuales (opcional si no los muestras) */
+.field-error-profile { /* Clase específica para no colisionar */
+    display: block;
+    width: 100%;
+    margin-top: var(--spacing-xs); /* Menos espacio que el error general */
+    color: var(--error-color);
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Required asterisk */
+.required-asterisk {
+    color: var(--error-color);
+    margin-left: 2px;
+    font-weight: bold;
+}

@@ -1,0 +1,254 @@
+/* ClientSidebar.css */
+
+/* Estilos principales del sidebar con los colores del módulo Categorías */
+.sidebar {
+  position: fixed; /* Cambiado de 'relative' a 'fixed' para que siempre esté fijo */
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: linear-gradient(180deg, #1e40af, #2563eb);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  z-index: 1000; /* Asegurar que esté por encima del contenido */
+  overflow: hidden;
+  transition: width 0.15s ease-out; /* Transición más rápida */
+}
+
+/* Nuevo botón de toggle mejorado */
+.sidebar-toggle-button {
+  position: absolute;
+  top: 76px;
+  right: -16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: white;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 0;
+}
+
+.sidebar-toggle-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-toggle-button:active {
+  transform: scale(0.95);
+}
+
+.sidebar-toggle-button svg {
+  font-size: 20px;
+}
+
+/* Header del sidebar */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 24px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 10px;
+  height: 80px; /* Asegúrate que la altura sea suficiente */
+  box-sizing: border-box; /* Incluye padding en la altura */
+}
+
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-avatar {
+  width: 40px !important;
+  height: 40px !important;
+  background: linear-gradient(135deg, #60a5fa, #8cb9ff) !important;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.4) !important;
+  margin-right: 12px;
+  transition: all 0.2s ease;
+  flex-shrink: 0; /* Evita que el avatar se encoja */
+}
+
+.sidebar-title {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  white-space: nowrap; /* Evita que el texto se rompa */
+}
+
+.sidebar-title h6 {
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  font-size: 18px !important;
+  color: white;
+  margin-bottom: 0;
+  line-height: 1.2; /* Ajusta la altura de línea si es necesario */
+}
+
+.app-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px !important;
+  line-height: 1.2;
+}
+
+
+/* Contenedor de menú con scroll personalizado */
+.sidebar-menu-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-menu-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-menu-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-menu-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.sidebar-menu-container:hover::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Links del sidebar */
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px; /* Ajusta el padding para que los iconos se centren bien cuando está cerrado */
+  width: 100%;
+  text-decoration: none;
+  color: white;
+  border-radius: 0 20px 20px 0; /* O el radio que prefieras */
+  margin: 2px 0; /* Ajusta el margen entre ítems */
+  transition: background-color 0.15s ease;
+  position: relative;
+  overflow: hidden; /* Para que el texto se oculte bien al cerrar */
+}
+
+.sidebar-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-link.active {
+  background-color: rgba(219, 234, 254, 0.15);
+}
+
+.active-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #60a5fa;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 8px rgba(96, 165, 250, 0.6);
+}
+
+.sidebar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.85;
+  margin-right: 16px;
+  min-width: 24px;
+  transition: color 0.15s ease, opacity 0.15s ease;
+  flex-shrink: 0; /* Evita que se encoja */
+}
+
+.sidebar-icon.active-icon {
+  color: #bfdbfe;
+  opacity: 1;
+}
+
+.sidebar-link-text {
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 14px;
+  transition: color 0.15s ease;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.sidebar-link-text.active-text {
+  font-weight: 500;
+  color: #bfdbfe;
+}
+
+/* Sección de cierre de sesión */
+.logout-section {
+  margin-top: auto;
+  padding: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logout-button {
+  width: 100% !important;
+  justify-content: flex-start !important; /* Alinea contenido al inicio */
+  padding: 10px 20px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  text-transform: none !important;
+  border-radius: 8px !important;
+  min-height: 40px; /* Asegura altura mínima */
+  white-space: nowrap; /* Evita que el texto se rompa */
+  transition: all 0.2s ease !important;
+}
+
+.logout-button:hover {
+  background-color: rgba(255, 0, 0, 0.15) !important; /* Fondo rojo sutil al pasar el mouse */
+  color: #ffcdd2 !important; /* Texto rojo claro */
+  transform: none !important;
+}
+
+.logout-button .MuiButton-startIcon {
+    margin-right: 16px; /* Mismo margen que los íconos de los links */
+}
+
+.logout-button-text {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar-header {
+    padding: 16px;
+    height: 70px;
+  }
+
+  .sidebar-avatar {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .sidebar-title h6 {
+    font-size: 16px !important;
+  }
+
+  .sidebar-link {
+    padding: 10px 16px;
+  }
+
+  .sidebar-toggle-button {
+    top: 68px;
+  }
+}

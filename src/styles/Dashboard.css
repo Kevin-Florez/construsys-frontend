@@ -1,0 +1,177 @@
+/* Dashboard.css - Estilos Modernos y Profesionales */
+
+:root {
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --border-radius: 16px;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.dashboard-container {
+    padding: 24px;
+    background-color: #f8fafc;
+    min-height: 100vh;
+}
+
+/* --- Estilos para el Encabezado y Filtro Rediseñados --- */
+.dashboard-header-redesigned {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Para responsividad */
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+/* --- Estilos para la Nueva StatCard --- */
+.stats-card-redesigned {
+    border-radius: var(--border-radius) !important;
+    transition: var(--transition-smooth) !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: none !important;
+    background-color: #fff !important;
+    height: 100%;
+}
+
+.stats-card-redesigned:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md) !important;
+    border-color: #fff !important;
+}
+
+.stats-card-redesigned-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+
+.stats-card-redesigned:hover .stats-card-redesigned-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* --- Estilos para las tarjetas de gráficos y tablas --- */
+.chart-card,
+.modern-table-card {
+    border-radius: var(--border-radius) !important;
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+    transition: var(--transition-smooth) !important;
+    background-color: #fff !important;
+    overflow: hidden;
+    height: 100%;
+}
+
+.chart-card:hover,
+.modern-table-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md) !important;
+}
+
+.chart-header {
+    position: relative;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+}
+
+.chart-decorative-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: #e2e8f0;
+}
+
+.table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background-color: #fcfdff;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* --- Chips de estado --- */
+.modern-status-chip {
+    font-weight: 600 !important;
+    border-radius: 20px !important;
+    text-transform: capitalize !important;
+    padding: 4px 8px !important;
+    height: auto !important;
+    font-size: 0.75rem !important;
+}
+
+.estado-completada, .estado-pagado, .estado-activo {
+    background: #e8f5e9 !important;
+    color: #2e7d32 !important;
+}
+.estado-pendiente, .estado-parcial, .estado-parcialmente-pagado {
+    background: #fff3e0 !important;
+    color: #ef6c00 !important;
+}
+.estado-vencido, .estado-anulada {
+    background: #ffebee !important;
+    color: #c62828 !important;
+}
+.estado-en-proceso {
+    background: #e3f2fd !important;
+    color: #1565c0 !important;
+}
+
+
+/* --- Estados de carga y error --- */
+.dashboard-error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: 24px;
+}
+
+/* --- Animaciones y Responsividad --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .stats-card-redesigned,
+    .chart-card,
+    .modern-table-card,
+    .dashboard-header-redesigned {
+        animation: fadeInUp 0.5s ease-out both;
+    }
+}
+
+@media (max-width: 900px) {
+    .dashboard-header-redesigned {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboard-container {
+        padding: 16px;
+    }
+    .table-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}

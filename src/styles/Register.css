@@ -1,0 +1,727 @@
+/* Register.css - Diseño moderno y profesional para formularios empresariales */
+
+/* Variables globales de colores y fuentes */
+:root {
+  /* Paleta de colores principal */
+  --primary-color: #3a6df0;
+  --primary-dark: #2951b9;
+  --primary-light: #ebf0ff;
+  --secondary-color: #5d7290;
+  
+  /* Colores de estado */
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+  --warning-color: #f39c12;
+  
+  /* Colores neutrales */
+  --bg-light: #ffffff;
+  --bg-off-white: #f9fafc;
+  --bg-gray-light: #f1f4f8;
+  --text-dark: #2d3748;
+  --text-medium: #4a5568;
+  --text-light: #718096;
+  --border-color: #e2e8f0;
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  /* Espaciado */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  
+  /* Bordes */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  
+  /* Transiciones */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow: 0.4s ease;
+}
+
+/* Estilos base */
+[data-page='register'] {
+  background-color: var(--bg-off-white);
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  box-sizing: border-box; /* Para que el padding no afecte el tamaño total */
+}
+
+.register-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: var(--spacing-xl) auto;
+  perspective: 1000px;
+}
+
+.register-card {
+  background-color: var(--bg-light);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  overflow: hidden; /* Previene que contenido interno desborde visualmente la tarjeta */
+  min-height: 600px; /* O ajusta según tu contenido mínimo esperado */
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.register-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Columna izquierda (información) */
+.register-info {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  padding: var(--spacing-xl);
+  width: 36%;
+  min-width: 320px; /* Evita que se encoja demasiado en layouts flex */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden; /* Para el efecto ::before */
+  box-sizing: border-box;
+}
+
+.register-info::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
+  opacity: 0.4;
+  z-index: 0; /* Asegurar que esté detrás del contenido */
+}
+
+.register-branding {
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xl);
+}
+
+.logo-icon {
+  font-size: 1.75rem;
+  margin-right: var(--spacing-sm);
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  letter-spacing: -0.5px;
+}
+
+.register-branding h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin: 0 0 var(--spacing-md);
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.register-branding p {
+  font-size: 1rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.info-bottom {
+  position: relative;
+  z-index: 1;
+}
+
+.register-benefits {
+  margin-bottom: var(--spacing-xl);
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+
+body[data-page="register"] {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffffff00, #2574fc57) !important;
+}
+
+.benefit-icon {
+  margin-right: var(--spacing-md);
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+}
+
+.login-prompt {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.text-button {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  cursor: pointer;
+  margin-left: var(--spacing-xs);
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.text-button::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: var(--spacing-sm);
+  right: var(--spacing-sm);
+  height: 1px;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform var(--transition-fast);
+  transform-origin: right;
+}
+
+.text-button:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Columna derecha (formulario) */
+.register-form-container {
+  flex: 1;
+  padding: var(--spacing-xl);
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.register-form {
+  width: 100%; /* El formulario ocupa el ancho de su contenedor */
+  max-width: 750px; /* Pero no más de 500px */
+  margin: 0 auto;
+}
+
+.register-form h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 var(--spacing-lg);
+  color: var(--text-dark);
+  text-align: center;
+}
+
+/* Indicador de pasos */
+.step-indicator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-md) 0;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.step-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-gray-light);
+  color: var(--text-light);
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  border: 2px solid var(--border-color);
+  transition: all var(--transition-normal);
+}
+
+.step.active .step-icon {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.step.completed .step-icon {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.step-label {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color var(--transition-normal);
+}
+
+.step.active .step-label {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.step-connector {
+  flex-grow: 1;
+  height: 2px;
+  background-color: var(--border-color);
+  margin: 0 var(--spacing-sm);
+  position: relative;
+  top: -10px;
+  z-index: 0;
+}
+
+/* Título del paso actual */
+.form-step-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-step-title h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-medium);
+}
+
+.step-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-right: var(--spacing-md);
+}
+
+
+.form-fields-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+/* Grupos de formulario */
+.form-group {
+  width: 100%; /* Asegura que el form-group use el ancho disponible en .register-form */
+  box-sizing: border-box;
+}
+
+.form-row {
+  display: flex;
+  gap: var(--spacing-md);
+  /* No necesita margin-bottom si los .form-group hijos ya lo tienen */
+}
+
+.form-row .form-group {
+  flex: 1;
+  min-width: 0; /* Crucial para flex items, para permitir que se encojan */
+}
+
+.register-label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-medium);
+}
+
+.required-asterisk {
+  color: var(--error-color);
+  margin-left: 2px;
+}
+
+/* Contenedor directo del input (y del icono del ojo si es un campo de contraseña) */
+/* En el JSX se usa .input-wrapper para todos los inputs que tienen un span de error/fortaleza debajo */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%; /* El wrapper ocupa el 100% del .form-group */
+}
+
+.register-input,
+.register-select {
+  width: 100%;                /* El input ocupa todo el ancho de su wrapper */
+  max-width: 100%;            /* Previene que el input se desborde de su wrapper */
+  padding: 12px 16px;         /* Padding base */
+  font-size: 0.95rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  box-sizing: border-box;     /* CRUCIAL: padding y border se incluyen en el width/height */
+}
+
+/* Específico para el icono del ojo: padding en el input */
+/* Se aplica si el input está dentro de .input-wrapper Y es de tipo password o text con nombre password/password2 */
+.input-wrapper input.register-input[type="password"],
+.input-wrapper input.register-input[type="text"][name="password"],
+.input-wrapper input.register-input[type="text"][name="password2"] {
+  padding-right: 45px; /* Espacio para el icono del ojo (ajusta si tu icono es más grande/pequeño) */
+}
+
+.register-input:focus, .register-select:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(58, 109, 240, 0.15);
+}
+
+.register-input::placeholder {
+  color: var(--text-light);
+  opacity: 0.7;
+}
+
+/* Validación de campos */
+.register-input.valid {
+  border-color: var(--success-color);
+}
+
+.register-input.invalid {
+  border-color: var(--error-color);
+}
+
+/* Mantener el padding-right para el icono del ojo incluso si se añade .valid o .invalid */
+.input-wrapper input.register-input[type="password"].valid,
+.input-wrapper input.register-input[type="text"][name="password"].valid,
+.input-wrapper input.register-input[type="text"][name="password2"].valid,
+.input-wrapper input.register-input[type="password"].invalid,
+.input-wrapper input.register-input[type="text"][name="password"].invalid,
+.input-wrapper input.register-input[type="text"][name="password2"].invalid {
+  padding-right: 45px; 
+}
+
+.register-input.valid:focus {
+  box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.15);
+}
+
+.register-input.invalid:focus {
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15);
+}
+
+.password-toggle-icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.1rem; /* Ajustado para emojis o FontAwesome */
+  color: var(--text-light);
+  user-select: none;
+  z-index: 2;
+  line-height: 1; /* Para alinear mejor emojis si los usas */
+  padding: 4px; /* Aumenta el área de clic */
+}
+
+.password-toggle-icon:hover {
+  color: var(--text-medium);
+}
+
+.password-toggle-icon:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: var(--border-radius-sm);
+}
+
+/* Mensajes de error de campo y fortaleza de contraseña */
+/* Estos elementos están fuera del .input-wrapper en el JSX */
+.field-error,
+.password-strength {
+  display: block; 
+  width: 100%;    
+  margin-top: var(--spacing-sm); 
+  box-sizing: border-box;
+  overflow-wrap: break-word; 
+  word-break: break-word; 
+}
+
+.field-error {
+  color: var(--error-color);
+  font-size: 0.8rem; 
+  font-weight: 500;
+}
+
+
+
+.strength-meter {
+  height: 4px;
+  background-color: var(--bg-gray-light);
+  border-radius: 100px;
+  overflow: hidden;
+  margin-bottom: var(--spacing-xs);
+}
+
+.strength-value {
+  height: 100%;
+  border-radius: 100px;
+  transition: width var(--transition-normal), background-color var(--transition-normal);
+}
+
+/* Colores para la barra de fortaleza */
+.strength-0 { background-color: transparent; } /* No mostrar barra para Muy Débil (strength 0) */
+.strength-1 { background-color: #e74c3c; } /* Rojo para Débil */
+.strength-2 { background-color: var(--warning-color); } /* Naranja para Moderada */
+.strength-3 { background-color: #27ae60; } /* Verde más oscuro para Fuerte */
+.strength-4 { background-color: var(--success-color); } /* Verde brillante para Muy Fuerte */
+
+.strength-text {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+/* Mensajes de error y éxito generales del formulario */
+.error-message, .success-message {
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-lg);
+  font-size: 0.9rem;
+  font-weight: 500;
+  animation: fadeIn var(--transition-normal);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.error-message {
+  background-color: rgba(231, 76, 60, 0.1);
+  color: var(--error-color);
+  border-left: 3px solid var(--error-color);
+}
+
+.success-message {
+  background-color: rgba(46, 204, 113, 0.1);
+  color: var(--success-color);
+  border-left: 3px solid var(--success-color);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Botones de navegación y envío */
+.form-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-xl);
+}
+
+.prev-button, .next-button, .register-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent; /* Borde base para consistencia de tamaño */
+  box-sizing: border-box;
+}
+
+.prev-button {
+  background-color: var(--bg-gray-light);
+  color: var(--text-medium);
+  border-color: var(--border-color); /* Borde visible para el botón prev */
+}
+
+.prev-button:hover {
+  background-color: var(--border-color);
+}
+
+.next-button, .register-button {
+  background-color: var(--primary-color);
+  color: white;
+  /* border: none; eliminado para usar el borde transparente de arriba */
+  box-shadow: 0 2px 4px rgba(58, 109, 240, 0.3);
+}
+
+.next-button:hover:not(:disabled), 
+.register-button:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(58, 109, 240, 0.4);
+}
+
+.next-button:disabled, 
+.register-button:disabled {
+  background-color: var(--secondary-color);
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: none;
+}
+
+.button-icon {
+  margin-left: var(--spacing-sm);
+  font-size: 1.1rem;
+}
+
+.prev-button .button-icon {
+  margin-left: 0;
+  margin-right: var(--spacing-sm);
+}
+
+
+
+.spinner, .spinner-small { /* Estilos unificados para spinner */
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Para botones oscuros */
+  border-radius: 50%;
+  border-top-color: white; /* Para botones oscuros */
+  animation: spin 0.8s linear infinite;
+  margin-right: var(--spacing-sm);
+  display: inline-block; /* Para que esté en línea con el texto */
+}
+
+/* Spinner para botones claros (como el 'next' del paso 1 si es claro) */
+.next-button .spinner-small,
+.prev-button .spinner-small { /* Si el botón prev tuviera spinner */
+    border: 2px solid rgba(0,0,0, 0.1); /* Borde gris claro */
+    border-top-color: var(--primary-color); /* Color primario para el spinner */
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Animaciones entre pasos */
+.register-form > *:not(.step-indicator):not(.error-message):not(.success-message):not(h2) {
+  animation: slideIn var(--transition-normal);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive */
+@media (max-width: 940px) {
+  .register-card {
+    flex-direction: column;
+  }
+  
+  .register-info {
+    width: 100%;
+    min-width: auto; /* Permitir que se encoja en móvil */
+    padding: var(--spacing-lg);
+  }
+  
+  .register-branding h1 {
+    font-size: 1.75rem;
+  }
+  
+  .register-benefits {
+    display: flex;
+    justify-content: space-around; /* Cambiado para distribuir mejor */
+    flex-wrap: wrap; /* Permitir que los ítems se ajusten */
+    margin: var(--spacing-lg) 0;
+  }
+  
+  .benefit-item {
+    margin-bottom: var(--spacing-sm); /* Espacio si se envuelven */
+    flex-basis: 45%; /* Para que intenten caber dos por línea */
+  }
+}
+
+@media (max-width: 640px) {
+  [data-page='register'] {
+    padding: var(--spacing-sm);
+    align-items: flex-start; /* Permitir scroll si el contenido es muy alto */
+  }
+  
+  .register-container {
+    margin: var(--spacing-md) auto;
+  }
+  
+  .register-card {
+    border-radius: var(--border-radius-md);
+    min-height: auto; /* Dejar que la altura se ajuste al contenido */
+  }
+  
+  .register-form-container {
+    padding: var(--spacing-lg);
+  }
+  
+  .register-benefits {
+    flex-direction: column;
+    align-items: flex-start; /* Alinear a la izquierda */
+  }
+  
+  .benefit-item {
+    margin-bottom: var(--spacing-sm);
+    flex-basis: auto; /* Que ocupen el ancho necesario */
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 0; /* El .form-group ya tiene margin-bottom */
+  }
+  .form-row .form-group {
+    margin-bottom: var(--spacing-lg); /* Re-añadir margen si están en columna */
+  }
+
+  .form-fields-grid .form-row:last-child .form-group:last-child {
+        margin-bottom: 0;
+  }
+  
+  .step-label {
+    display: none; /* Ocultar etiquetas para ahorrar espacio */
+  }
+  
+  .step-indicator {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .form-navigation {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .prev-button, .next-button, .register-button {
+    width: 100%;
+  }
+}

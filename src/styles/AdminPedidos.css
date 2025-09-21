@@ -1,0 +1,117 @@
+/* src/styles/AdminPedidos.css */
+
+/* Estilos base del contenedor principal */
+.pedidos-container {
+    padding: 24px;
+    text-align: left;
+    background-color: #f8fafc;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    max-width: 95%;
+    margin: 24px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Encabezado del Módulo */
+.pedidos-title-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e0e7ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pedidos-title-header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1e40af;
+    margin: 0;
+    position: relative;
+}
+
+.pedidos-title-header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -17px; /* Ajustado para estar sobre el borde */
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    border-radius: 3px;
+}
+
+/* Barra de Herramientas (Buscador y Botón) */
+.pedidos-toolbar {
+    display: flex;
+    justify-content: flex-start !important; /* 👈 lo deja alineado a la izquierda */
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+
+.pedidos-toolbar .search-input {
+    max-width: 400px;
+    flex-grow: 1;
+}
+
+.search-icon {
+    color: #3b82f6;
+}
+
+/* Tabla de Pedidos */
+.pedidos-table {
+    margin-top: 16px;
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.pedidos-table .MuiTableHead-root .MuiTableCell-root {
+    background-color: #eef2ff;
+    color: #312e81;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 16px;
+    border-bottom: 2px solid #c7d2fe;
+}
+
+.pedidos-table .MuiTableCell-root {
+    padding: 14px 16px;
+    color: #475569;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+.pedidos-table .MuiTableRow-root:hover {
+    background-color: #f0f9ff !important;
+}
+
+/* Estilo para filas de pedidos finalizados (atenuadas) */
+.fila-finalizada {
+    background-color: #f8fafc;
+    color: #94a3b8;
+}
+
+.fila-finalizada .MuiTableCell-root {
+    color: #94a3b8;
+}
+
+/* Paginación de la tabla */
+.table-pagination {
+    border-top: 1px solid #e2e8f0;
+}
+
+
+.pedidos-table .MuiTableCell-head {
+  text-transform: none !important;
+}
+
+
+
+.ttt .MuiTableCell-head {
+  text-transform: none !important;
+}

@@ -1,0 +1,376 @@
+/* Roles.css */
+.roles-container {
+  padding: 24px;
+  text-align: left;
+  background-color: #f8fafc;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  max-width: 95%;
+  margin: 24px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.search-icon {
+  color: #3b82f6;
+}
+
+/* --- ESTILOS PARA EL TÍTULO --- */
+.roles-title-header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e0e7ff;
+}
+
+.roles-title-header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1e40af; /* Azul oscuro para el título */
+  margin: 0;
+  position: relative;
+}
+
+.roles-title-header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px; /* Ajusta si el padding-bottom cambia */
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  border-radius: 3px;
+}
+
+/* --- ESTILOS PARA LA BARRA DE HERRAMIENTAS --- */
+.roles-toolbar {
+  display: flex;
+  justify-content: space-between; /* Empuja buscador y botón a los extremos */
+  align-items: center; /* Centra verticalmente */
+  margin-bottom: 20px; /* Espacio antes de la tabla */
+  gap: 16px; /* Espacio entre elementos si se encogen */
+  flex-wrap: wrap; /* Permite que se envuelvan en pantallas pequeñas */
+}
+
+/* --- ESTILOS PARA EL BUSCADOR DENTRO DE LA BARRA --- */
+.roles-toolbar .search-input { 
+  /* Mantenemos la clase para el TextField, pero algunos estilos pueden aplicarse con sx */
+  /* El fondo blanco y bordes se aplican con 'sx' en el JSX */
+  /* Podemos ajustar el ancho aquí si es necesario */
+  min-width: 300px; /* Ancho mínimo */
+  flex-grow: 1; /* Permite que crezca si hay espacio */
+  max-width: 400px; /* Mantenemos el máximo */
+}
+
+.search-icon {
+  color: #3b82f6;
+}
+
+/* --- ESTILOS PARA EL BOTÓN DENTRO DE LA BARRA --- */
+.roles-toolbar .add-button {
+  background: linear-gradient(45deg, #2563eb, #3b82f6) !important; 
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+  transition: all 0.3s ease !important;
+  text-transform: none !important;
+  white-space: nowrap; /* Evita que el texto del botón se parta */
+}
+
+.roles-toolbar .add-button:hover {
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4) !important;
+  transform: translateY(-2px) !important;
+  background: linear-gradient(45deg, #1d4ed8, #3b82f6) !important;
+}
+
+/* --- ESTILOS ANTERIORES (Eliminados o Modificados) --- */
+/* .roles-header ya no existe en la misma forma */
+/* .search-card y .search-content ya no se usan en la estructura principal */
+
+
+/* --- ESTILOS PARA LA TABLA (Sin cambios) --- */
+.roles-table {
+  margin-top: 16px;
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.roles-table table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #ffffff;
+}
+
+.roles-table th {
+  background-color: #dbeafe; 
+  color: #1e40af; 
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  padding: 16px;
+  border-bottom: 2px solid #bfdbfe;
+  text-transform: none !important;
+}
+
+.roles-table td {
+  padding: 16px;
+  color: #475569;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.95rem;
+}
+
+.roles-table tr:hover {
+  background-color: #f0f9ff;
+}
+
+.actions-cell {
+  width: 180px; 
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap; 
+}
+
+/* ... (Resto de los estilos de chips, paginación, diálogos, etc. se mantienen igual que en tu versión anterior) ... */
+
+/* Estilos para los chips de permisos en la tabla */
+.permission-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.permission-chip {
+  background-color: #dbeafe !important;
+  color: #1e40af !important;
+  font-size: 0.75rem !important;
+}
+
+.more-chip {
+  background-color: #e0e7ff !important;
+  color: #4f46e5 !important;
+  font-size: 0.75rem !important;
+  cursor: pointer;
+}
+
+/* Estilos para la paginación */
+.table-pagination {
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Estilos para el diálogo de Agregar/Editar Rol */
+.rol-dialog .dialog-title {
+  background: linear-gradient(to right, #e0f2fe, #bfdbfe);
+    color: #1e40af;
+    padding: 16px 24px;
+    font-weight: 600;
+    border-bottom: 1px solid #bfdbfe;
+}
+
+.rol-dialog .dialog-content { 
+  background-color: #fbfdff;
+  padding: 20px !important;
+}
+
+.form-field { 
+  margin-bottom: 16px !important;
+}
+
+.chips-container { 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.form-switch-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 16px;
+}
+
+.form-switch-label {
+  font-weight: 500;
+  color: #1e40af; 
+  min-width: 80px; 
+}
+
+.form-switch-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.estado-indicator { 
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.estado-indicator.activo {
+  color: #2e7d32;
+}
+
+.estado-indicator.inactivo {
+  color: #d32f2f;
+}
+
+/* Estilos para el diálogo de Ver Detalles */
+.details-dialog .dialog-title {
+  background: linear-gradient(to right, #e0f2fe, #bfdbfe);
+  color: #1e40af;
+  display: flex;
+  align-items: center;
+}
+
+.details-dialog .dialog-content { 
+    background-color: #fbfdff; 
+    padding: 20px !important;
+}
+
+.permissions-header { 
+  color: #1e40af;
+  margin-top: 0; 
+  margin-bottom: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.permissions-list { 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.detail-permission-chip { 
+  background-color: #dbeafe !important;
+  color: #1e40af !important;
+  margin-bottom: 0px !important; 
+}
+
+.dialog-actions {
+  padding: 16px 24px !important;
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.no-data {
+  padding: 32px !important;
+  color: #94a3b8 !important;
+  font-style: italic;
+}
+
+/* --- ESTILOS PARA EL TEXTO DE ESTADO CLICKABLE EN LA TABLA --- */
+.estado-label { 
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 6px 10px; 
+  border-radius: 6px; 
+  display: inline-block; 
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.estado-label.activo {
+  color: #16a34a; 
+  background-color: #dcfce7; 
+}
+
+.estado-label.inactivo {
+  color: #d32f2f;
+  background-color: #ffebee; 
+}
+
+.estado-clickable {
+  cursor: pointer;
+  user-select: none; 
+  padding: 6px 12px; 
+  border-radius: 4px; 
+  display: inline-block; 
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; 
+}
+
+.estado-clickable:hover {
+  background-color: rgba(0, 0, 0, 0.05); 
+}
+
+.estado-clickable:focus,
+.estado-clickable:focus-visible { 
+  outline: 2px solid #2196F3; 
+  outline-offset: 2px; 
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.4); 
+}
+
+.estado-clickable[aria-disabled="true"], 
+.estado-clickable[aria-disabled="true"]:hover {
+    cursor: default;
+    opacity: 0.6; 
+    background-color: transparent !important; 
+    filter: none !important; 
+    box-shadow: none !important; 
+    outline: none !important; 
+}
+
+.confirm-dialog .confirm-dialog-title {
+    color: #dc2626;
+    background-color: #fef2f2;
+    border-bottom: 1px solid #fee2e2;
+}
+
+
+/* Seleccionamos el DialogTitle de MUI (con su clase MuiDialogTitle-root) 
+   que esté DENTRO de nuestro diálogo con la clase .confirm-estado */
+
+
+.estado-not-clickable {
+  cursor: default !important;
+}
+.estado-not-clickable:hover {
+  background-color: transparent !important; 
+  filter: none !important;
+}
+
+.row-inactivo { 
+  background-color: #fce8e6 !important; 
+}
+
+/* Estilos específicos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .roles-title-header {
+    text-align: center; /* Centrar título en móviles */
+  }
+  .roles-title-header h1::after {
+     left: 50%; /* Centrar línea bajo el título */
+     transform: translateX(-50%);
+  }
+  .roles-toolbar {
+    flex-direction: column; /* Apilar buscador y botón */
+    align-items: stretch; /* Estirar para ocupar ancho */
+  }
+  .roles-toolbar .search-input {
+      max-width: 100%; /* Permitir que ocupe todo el ancho */
+      min-width: unset;
+  }
+  .roles-toolbar .add-button {
+      width: 100%; /* Botón ocupa todo el ancho */
+  }
+}
+
+.rol-dialog .MuiInputLabel-outlined.MuiInputLabel-shrink {
+    transform: translate(14px, -9px) scale(0.75); 
+    background-color: #fbfdff; 
+    padding-left: 4px;      
+    padding-right: 4px;      
+}
+
+.loading-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    font-size: 1.2rem;
+    color: #475569;
+    gap: 15px;
+}

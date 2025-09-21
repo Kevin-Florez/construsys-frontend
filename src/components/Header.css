@@ -1,0 +1,44 @@
+/* src/components/Header.css */
+.app-bar-custom {
+    /* z-index ya está en sx, pero lo ponemos aquí por si acaso */
+    z-index: 1100 !important;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 64px; /* Asegura la altura */
+    height: 64px;
+    padding: 0 24px !important;
+}
+
+/* ✨ MODIFICADO: Hacemos los selectores más específicos */
+.app-bar-custom .MuiTypography-subtitle1 {
+    font-weight: 600 !important;
+    color: #1e3a8a !important;
+}
+
+.app-bar-custom .MuiTypography-caption {
+    color: #64748b !important;
+}
+
+.app-bar-custom .MuiIconButton-root {
+   color: #333 !important;
+}
+
+.app-bar-custom .MuiAvatar-root {
+    background-color: #2563eb !important;
+    color: white !important;
+}
+/* ✨ FIN MODIFICACIÓN */
+
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 1024px) {
+    .app-bar-custom {
+       width: 100% !important;
+       margin-left: 0 !important;
+       left: 0 !important; /* Asegurar que empiece en el borde */
+    }
+}

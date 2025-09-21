@@ -1,0 +1,426 @@
+/* CambiarContrasena.css - Siguiendo el diseño moderno y profesional de Register.css */
+
+/* Variables globales de colores y fuentes - Manteniendo coherencia con Register.css */
+:root {
+  /* Paleta de colores principal */
+  --primary-color: #3a6df0;
+  --primary-dark: #2951b9;
+  --primary-light: #ebf0ff;
+  --secondary-color: #5d7290;
+  
+  /* Colores de estado */
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+  --warning-color: #f39c12;
+  
+  /* Colores neutrales */
+  --bg-light: #ffffff;
+  --bg-off-white: #f9fafc;
+  --bg-gray-light: #f1f4f8;
+  --text-dark: #2d3748;
+  --text-medium: #4a5568;
+  --text-light: #718096;
+  --border-color: #e2e8f0;
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  /* Espaciado */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  
+  /* Bordes */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  
+  /* Transiciones */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow: 0.4s ease;
+}
+
+/* Estilos base */
+[data-page='cp-page'] {
+  background-color: var(--bg-off-white);
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  box-sizing: border-box;
+}
+
+.cp-container {
+  width: 100%;
+  max-width: 540px;
+  margin: var(--spacing-xl) auto;
+  perspective: 1000px;
+}
+
+.cp-card {
+  background-color: var(--bg-light);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  padding: var(--spacing-xl);
+  box-sizing: border-box;
+}
+
+.cp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.cp-form {
+  width: 100%;
+}
+
+.cp-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 var(--spacing-xl);
+  color: var(--text-dark);
+  text-align: center;
+  position: relative;
+  padding-bottom: var(--spacing-md);
+}
+
+.cp-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 100px;
+}
+
+/* Grupos de formulario */
+.cp-form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.cp-label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-medium);
+}
+
+.cp-required-asterisk {
+  color: var(--error-color);
+  margin-left: 2px;
+}
+
+.cp-input-container {
+  position: relative; /* Necesario para iconos internos */
+}
+
+/* Estilos para cuando hay un icono FA a la izquierda */
+.cp-input-container.with-icon .cp-input {
+  padding-left: 48px; /* Espacio para el icono FA a la izquierda */
+}
+
+.cp-input-icon { /* Icono Font Awesome a la izquierda */
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+  font-size: 1rem;
+  z-index: 2; 
+}
+
+.cp-input {
+  width: 100%;
+  padding: 12px 16px; /* Padding base. padding-left y padding-right serán sobreescritos si hay iconos. */
+  font-size: 0.95rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  box-sizing: border-box; /* --- CORRECCIÓN CLAVE --- */
+}
+
+.cp-input:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(58, 109, 240, 0.15);
+}
+
+.cp-input::placeholder {
+  color: var(--text-light);
+  opacity: 0.7;
+}
+
+/* Validación de campos */
+.cp-input.valid {
+  border-color: var(--success-color);
+}
+
+.cp-input.invalid {
+  border-color: var(--error-color);
+}
+
+/* --- INICIO: Estilos para el icono del ojo en campos de contraseña --- */
+/* Estos campos siempre tendrán el icono del ojo, por lo que el padding-right es constante */
+.cp-input[name="passwordActual"],
+.cp-input[name="passwordNuevo"],
+.cp-input[name="passwordNuevoConfirmacion"] {
+  padding-right: 45px !important; /* Espacio para el icono del ojo a la derecha. 
+                                      !important usado en tu original, lo mantenemos por ahora,
+                                      pero idealmente se lograría con especificidad. */
+}
+
+/* Si las clases .valid o .invalid se aplican, mantener el padding-right para el ojo.
+   Estas reglas son más específicas que .cp-input.valid/.invalid generales. */
+.cp-input[name="passwordActual"].valid,
+.cp-input[name="passwordActual"].invalid,
+.cp-input[name="passwordNuevo"].valid,
+.cp-input[name="passwordNuevo"].invalid,
+.cp-input[name="passwordNuevoConfirmacion"].valid,
+.cp-input[name="passwordNuevoConfirmacion"].invalid {
+  padding-right: 45px !important; /* Mantiene el espacio para el ojo */
+  /* El border-color será aplicado por .cp-input.valid o .cp-input.invalid */
+}
+
+.password-toggle-icon { /* Icono del ojo a la derecha */
+  position: absolute;
+  top: 50%;
+  right: 15px; 
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.2rem; 
+  color: var(--text-light);
+  user-select: none; 
+  z-index: 3; /* Encima del icono FA y del input */
+  padding: 4px; /* Opcional, para mejorar área de clic */
+}
+
+.password-toggle-icon:hover {
+  color: var(--text-medium);
+}
+
+.password-toggle-icon:focus-visible { 
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: var(--border-radius-sm);
+}
+/* --- FIN: Estilos para el icono del ojo --- */
+
+.cp-input.valid:focus { /* Estilo de foco para campo válido */
+  border-color: var(--success-color);
+  box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.15);
+}
+
+.cp-input.invalid:focus { /* Estilo de foco para campo inválido */
+  border-color: var(--error-color);
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15);
+}
+
+.cp-field-error {
+  display: block;
+  color: var(--error-color);
+  font-size: 0.8rem; /* Consistente con otros field-error */
+  margin-top: var(--spacing-xs);
+  font-weight: 500;
+}
+
+/* Indicador de fortaleza de contraseña */
+.cp-password-strength {
+  margin-top: var(--spacing-sm);
+}
+
+.cp-strength-meter {
+  height: 4px;
+  background-color: var(--bg-gray-light);
+  border-radius: 100px;
+  overflow: hidden;
+  margin-bottom: var(--spacing-xs);
+}
+
+.cp-strength-value { 
+  height: 100%;
+  border-radius: 100px;
+  transition: width var(--transition-normal), background-color var(--transition-normal);
+}
+
+/* Clases específicas de fortaleza para el color de la barra (se usa 'strength-X' desde el JSX) */
+.cp-strength-value.strength-0 { background-color: transparent; } /* O var(--error-color) si quieres barra roja en muy debil con 0% width */
+.cp-strength-value.strength-1 { background-color: var(--error-color); }
+.cp-strength-value.strength-2 { background-color: var(--warning-color); }
+.cp-strength-value.strength-3 { background-color: #27ae60; } /* Verde más oscuro */
+.cp-strength-value.strength-4 { background-color: var(--success-color); }
+
+
+.cp-strength-text {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+/* Mensajes de error y éxito */
+.cp-error-message, .cp-success-message {
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-lg);
+  font-size: 0.9rem;
+  font-weight: 500;
+  animation: fadeIn var(--transition-normal);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.cp-error-message {
+  background-color: rgba(231, 76, 60, 0.1);
+  color: var(--error-color);
+  border-left: 3px solid var(--error-color);
+}
+
+.cp-success-message {
+  background-color: rgba(46, 204, 113, 0.1);
+  color: var(--success-color);
+  border-left: 3px solid var(--success-color);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Botones de navegación y envío */
+.cp-form-navigation {
+  display: flex;
+  justify-content: center; /* Centra el botón */
+  margin-top: var(--spacing-xl);
+}
+
+.cp-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  box-shadow: 0 2px 4px rgba(58, 109, 240, 0.3);
+  width: 100%; /* Ocupa todo el ancho disponible en su contenedor */
+}
+
+.cp-button:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(58, 109, 240, 0.4);
+}
+
+.cp-button-icon {
+  margin-left: var(--spacing-sm);
+  font-size: 1.1rem;
+}
+
+/* Estado de carga */
+.cp-button.loading,
+.cp-button:disabled {
+  background-color: var(--secondary-color);
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: none;
+}
+
+.cp-button.loading:hover {
+    transform: none;
+}
+
+.cp-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.8s linear infinite;
+  margin-right: var(--spacing-sm);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Enlace de cancelación */
+.cp-footer-link {
+  text-align: center;
+  margin-top: var(--spacing-lg); /* Aumentado el margen superior */
+}
+
+.cp-text-button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.cp-text-button:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Animaciones */
+.cp-form > *:not(.cp-error-message, .cp-success-message, .cp-title) {
+  animation: slideUp var(--transition-normal) forwards;
+  opacity: 0; /* Inicia invisible para la animación */
+}
+
+/* Delay escalonado para la animación */
+.cp-form .cp-form-group:nth-of-type(1) { animation-delay: 0.1s; }
+.cp-form .cp-form-group:nth-of-type(2) { animation-delay: 0.2s; }
+.cp-form .cp-form-group:nth-of-type(3) { animation-delay: 0.3s; }
+.cp-form .cp-form-navigation { animation-delay: 0.4s; }
+.cp-form .cp-footer-link { animation-delay: 0.5s; }
+
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  [data-page='cp-page'] {
+    padding: var(--spacing-sm);
+    align-items: flex-start; /* Para permitir scroll si el contenido es muy alto */
+  }
+  
+  .cp-container {
+    margin: var(--spacing-md) auto;
+  }
+  
+  .cp-card {
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+  }
+}

@@ -1,0 +1,160 @@
+/* src/styles/BajasInventario.css */
+
+.bajas-inv-container {
+    padding: 24px;
+    background-color: #f8fafc;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    max-width: 95%;
+    margin: 24px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bajas-inv-title-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e0e7ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.bajas-inv-title-header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1e40af;
+    margin: 0;
+}
+
+.bajas-inv-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.bajas-inv-toolbar .search-input {
+    min-width: 300px;
+    flex-grow: 1;
+}
+
+.search-icon {
+    color: #3b82f6;
+}
+
+.bajas-inv-title-header .add-button,
+.bajas-inv-toolbar .add-button {
+    background: linear-gradient(45deg, #2563eb, #3b82f6) !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+    transition: all 0.3s ease !important;
+    text-transform: none !important;
+    white-space: nowrap;
+    color: white !important;
+}
+
+.bajas-inv-title-header .add-button:hover,
+.bajas-inv-toolbar .add-button:hover {
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4) !important;
+    transform: translateY(-2px) !important;
+    background: linear-gradient(45deg, #1d4ed8, #3b82f6) !important;
+}
+
+.bajas-inv-table {
+    margin-top: 16px;
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.bajas-inv-table th {
+    background-color: #dbeafe; 
+    color: #1e40af; 
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 16px;
+    border-bottom: 2px solid #bfdbfe;
+    white-space: nowrap;
+}
+
+.bajas-inv-table td {
+    padding: 16px;
+    color: #475569;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.95rem;
+}
+
+.bajas-inv-table tr:hover {
+    background-color: #f0f9ff; 
+}
+
+/* --- ESTILOS PARA ETIQUETAS DE RESOLUCIÓN --- */
+.resolucion-label {
+    font-weight: 500;
+    font-size: 0.85rem;
+    padding: 6px 10px; 
+    border-radius: 12px;
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
+}
+
+.resolucion-label.pendiente {
+    background-color: #fef3c7; /* Amarillo */
+    color: #d97706;
+}
+
+.resolucion-label.desechado {
+    background-color: #fee2e2; /* Rojo */
+    color: #ef4444;
+}
+
+.resolucion-label.proveedor {
+    background-color: #e0e7ff; /* Indigo */
+    color: #4f46e5;
+}
+
+.baja-dialog .dialog-title {
+    background: linear-gradient(to right, #e0f2fe, #bfdbfe);
+    color: #1e40af;
+    padding: 16px 24px !important;
+    font-weight: 600 !important;
+    border-bottom: 1px solid #bfdbfe;
+}
+
+.baja-dialog .dialog-content {
+    background-color: #fbfdff;
+    padding: 20px 24px !important;
+}
+
+.baja-dialog .dialog-actions {
+    padding: 16px 24px !important;
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
+
+.loading-indicator { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 50px; 
+    font-size: 1.2rem; 
+    color: #1e40af; 
+}
+.loading-indicator .MuiCircularProgress-root { 
+    margin-bottom: 16px; 
+}
+
+.no-data { 
+    padding: 32px !important; 
+    color: #94a3b8 !important; 
+    font-style: italic; 
+}
+
+.bajas-inv-table .MuiTableCell-head {
+  text-transform: none !important;
+}

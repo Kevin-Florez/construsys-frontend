@@ -1,0 +1,91 @@
+/* src/styles/PedidosCliente.css */
+
+.pedidos-container {
+    padding: 24px;
+    background-color: #f8fafc;
+    border-radius: 16px;
+    max-width: 95%;
+    margin: 24px auto;
+}
+
+.pedidos-title-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e0e7ff;
+}
+
+.pedidos-title-header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1e40af;
+    margin: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pedidos-title-header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    border-radius: 3px;
+}
+
+.pedidos-toolbar {
+    display: flex;
+    justify-content: flex-end; /* Alinea el buscador a la derecha */
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.pedidos-toolbar .search-input { 
+    min-width: 300px;
+    max-width: 400px;
+}
+
+.search-icon {
+    color: #3b82f6;
+}
+
+.pedidos-table-container {
+    margin-top: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.pedidos-table th {
+    background-color: #dbeafe;
+    color: #1e40af;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 16px;
+    border-bottom: 2px solid #bfdbfe;
+}
+
+.pedidos-table td {
+    padding: 16px;
+    color: #475569;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.95rem;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.no-data-cell {
+    padding: 32px !important;
+    color: #94a3b8 !important;
+    font-style: italic;
+}
+
+.loading-cell {
+    padding: 50px !important;
+}

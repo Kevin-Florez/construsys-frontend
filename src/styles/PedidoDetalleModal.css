@@ -1,0 +1,25 @@
+/* src/styles/PedidoDetalleModal.css */
+
+.product-image-modal {
+    width: 60px !important;
+    height: 60px !important;
+    margin-right: 16px;
+    border: 1px solid #e0e0e0;
+}
+
+
+/* src/styles/PedidoDetalleModal.css */
+
+.comprobante-thumbnail {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  transition: transform 0.2s ease;
+}
+
+.comprobante-thumbnail:hover {
+  transform: scale(1.05);
+  border-color: #aaa;
+}

@@ -1,0 +1,655 @@
+/* src/styles/PagoCliente.css */
+
+/* Busca esta regla en tu archivo */
+.page-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    overflow: visible; /* ✨ AÑADE ESTA LÍNEA SI NO LA TIENE */
+}
+
+.pago-header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.back-button {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #4b5563;
+    font-weight: 500;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.back-button:hover {
+    background-color: #f3f4f6;
+    color: #111827;
+}
+
+.pago-titulo {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+
+/* Busca esta regla en tu archivo */
+.pago-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2.5rem;
+    align-items: flex-start; /* ✨ ASEGÚRATE DE QUE ESTA LÍNEA ESTÉ PRESENTE */
+}
+
+@media (max-width: 1024px) {
+    .pago-layout {
+        grid-template-columns: 1fr;
+    }
+    .summary-column {
+        grid-row: 1;
+    }
+}
+
+.form-column, .summary-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 1.5rem 0;
+}
+
+.card-title.no-margin {
+    margin: 0;
+}
+
+.delivery-options-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.delivery-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-weight: 500;
+    color: #374151;
+}
+
+.delivery-option:hover {
+    border-color: #9ca3af;
+}
+
+.delivery-option.selected {
+    border-color: #3b82f6;
+    background-color: #eff6ff;
+    color: #1e40af;
+}
+
+.delivery-option input[type="radio"] {
+    display: none;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+.form-field-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 0.875rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    pointer-events: none;
+    transition: color 0.2s;
+}
+
+.form-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75rem 1rem 0.75rem 2.75rem !important;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus + .input-icon {
+    color: #3b82f6;
+}
+
+.form-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+.form-input::placeholder {
+    color: #9ca3af;
+}
+
+.form-input.input-error {
+    border-color: #ef4444;
+}
+
+.form-input.input-error:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25);
+}
+
+.form-input.input-error + .input-icon {
+    color: #ef4444;
+}
+
+.error-text {
+    color: #ef4444;
+    font-size: 0.8rem;
+    margin-top: 0.1rem;
+}
+
+.credit-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+.credit-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pago-instrucciones {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    background-color: #f9fafb;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+.pago-instrucciones p {
+    margin: 0;
+}
+.account-number {
+    font-weight: 600;
+    color: #111827;
+    font-size: 1rem;
+    margin-top: 0.25rem;
+}
+
+.file-drop-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border: 2px dashed #d1d5db;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+    text-align: center;
+    color: #6b7280;
+}
+.file-drop-zone:hover {
+    border-color: #3b82f6;
+    background-color: #f9fafb;
+}
+.file-drop-zone.input-error {
+    border-color: #ef4444;
+}
+.file-input-hidden {
+    display: none;
+}
+.preview-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+.preview-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.remove-preview-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: rgba(17, 24, 39, 0.6);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    z-index: 10;
+}
+.remove-preview-button:hover {
+    background-color: rgba(17, 24, 39, 0.8);
+}
+
+.summary-card {
+    position: sticky;
+    top: 6rem; /* Ajustado para dejar espacio para el header principal */
+}
+.resumen-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* ✨ CORRECCIÓN: Quitamos el scroll de aquí para que scrollee la página entera */
+    /* max-height: 400px; */
+    /* overflow-y: auto; */
+    padding-right: 0.5rem;
+}
+.resumen-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+.resumen-item:last-child {
+    border-bottom: none;
+}
+.resumen-item-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+.resumen-item-info {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+.resumen-item-name {
+    font-size: 0.9rem;
+    color: #374151;
+}
+.resumen-item-price {
+    font-weight: 500;
+    color: #111827;
+    white-space: nowrap;
+}
+.resumen-total-section {
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.resumen-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #4b5563;
+}
+.credit-line {
+    color: #1e875a;
+}
+.resumen-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+.resumen-total-monto {
+    color: #111827;
+}
+
+.submit-container {
+    margin-top: 1.5rem;
+}
+.submit-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #1e40af;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.submit-button:hover:not(:disabled) {
+    background-color: #1c3d91;
+    transform: translateY(-2px);
+}
+.submit-button:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.qr-container {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: fadeIn 0.5s ease;
+}
+
+.qr-image {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.qr-text {
+    font-size: 0.875rem;
+    color: #555;
+    font-weight: 500;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ✨ ESTA REGLA NO NECESITA CAMBIOS, PERO LA CORRECCIÓN DE ARRIBA LA HARÁ FUNCIONAR MEJOR */
+.summary-column .summary-card {
+  position: -webkit-sticky; /* Para compatibilidad con Safari */
+  position: sticky;
+  /* ✨ VALOR AJUSTADO: Se alinea con el padding de main-content */
+  top: 84px; 
+}
+
+/* Busca o crea esta regla en tu archivo */
+.summary-column {
+  position: -webkit-sticky; /* Para compatibilidad con Safari */
+  position: sticky;
+  top: 8rem; /* Espacio desde el borde superior (ajusta si lo necesitas) */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+
+/* Añade esto al final de tu archivo src/styles/PagoCliente.css */
+
+/* --- Estilos para la Vista de Selección de Autenticación --- */
+
+.page-container-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f1f5f9; /* slate-100 */
+    padding: 2rem;
+}
+
+.auth-choice-card {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    max-width: 1100px;
+    width: 100%;
+    padding: 3rem;
+    text-align: center;
+}
+
+.auth-choice-header {
+    margin-bottom: 3rem;
+}
+
+.auth-choice-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e293b; /* slate-800 */
+}
+
+.auth-choice-subtitle {
+    font-size: 1.125rem;
+    color: #64748b; /* slate-500 */
+    margin-top: 0.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.auth-choice-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+@media (max-width: 900px) {
+    .auth-choice-options {
+        grid-template-columns: 1fr;
+    }
+}
+
+.auth-option {
+    border: 1px solid #e2e8f0; /* slate-200 */
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.auth-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.auth-option-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0e7ff; /* indigo-100 */
+    color: #4338ca; /* indigo-700 */
+    margin-bottom: 1.5rem;
+}
+
+.auth-option-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e293b; /* slate-800 */
+    margin-bottom: 0.75rem;
+}
+
+.auth-option-desc {
+    font-size: 0.9rem;
+    color: #64748b; /* slate-500 */
+    flex-grow: 1; /* Esto hace que todas las descripciones ocupen el mismo espacio */
+    margin-bottom: 2rem;
+}
+
+.auth-option-button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.auth-option-button.primary {
+    background-color: #1e3a8a; /* Azul oscuro */
+    color: white;
+}
+.auth-option-button.primary:hover {
+    background-color: #1e40af;
+}
+
+.auth-option-button.secondary {
+    background-color: transparent;
+    color: #1e3a8a;
+    border: 1px solid #1e3a8a;
+}
+.auth-option-button.secondary:hover {
+    background-color: #e0e7ff;
+}
+
+.auth-option-button.guest {
+    background-color: #f1f5f9; /* slate-100 */
+    color: #334155; /* slate-700 */
+}
+.auth-option-button.guest:hover {
+    background-color: #e2e8f0;
+}
+
+.auth-choice-footer {
+    margin-top: 3rem;
+}
+
+.back-button-auth {
+    background: none;
+    border: none;
+    color: #64748b;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.back-button-auth:hover {
+    color: #1e293b;
+}
+
+
+/* Añade esto al final de tu archivo src/styles/PagoCliente.css */
+
+/* ✨ INICIO: Corrección de Estilos para los Campos de Documento */
+
+/* Contenedor principal de los dos campos */
+.document-inputs {
+    display: grid;
+    /* Proporción más equilibrada: el número es 1.5 veces más ancho que el tipo */
+    grid-template-columns: 1fr 1.5fr; 
+    gap: 1rem;
+    /* Alinea los campos en la parte inferior para que se vean nivelados */
+    align-items: flex-end; 
+    margin-top: 1rem;
+}
+
+/* Ajuste fino para el campo de tipo de documento (Select) */
+.document-inputs .document-type-select {
+    /* Elimina cualquier margen inferior que pueda desalinearlo */
+    margin-bottom: 0; 
+}
+
+/* Ajuste fino para el contenedor del campo de número de documento (FormInput) */
+.document-inputs .document-number-wrapper .form-group {
+    /* Elimina el margen inferior para que se alinee con el Select */
+    margin-bottom: 0; 
+}
+
+/* El resto de los estilos que ya tenías para esta sección */
+.document-check-section {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.document-number-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.document-loader {
+    position: absolute !important;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    color: #3b82f6 !important;
+}
+
+.document-inputs .MuiInputLabel-root {
+    font-size: 0.9rem;     /* igual que el otro */
+    color: #374151;        /* gris oscuro para coincidir */
+    margin-bottom: 0.25rem; /* separa un poco del select */
+}
+
+/* ✨ FIN DE LA CORRECCIÓN */

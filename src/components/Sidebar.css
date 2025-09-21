@@ -1,0 +1,302 @@
+/* Estilos principales del sidebar con los colores del módulo Categorías */
+.sidebar {
+  position: fixed; /* Cambiado de 'relative' a 'fixed' para que siempre esté fijo */
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: linear-gradient(180deg, #1e40af, #2563eb);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  overflow: hidden;
+  transition: width 0.15s ease-out; /* Transición más rápida */
+}
+
+/* Nuevo botón de toggle mejorado */
+.sidebar-toggle-button {
+  background: #ffffff !important; /* Azul MUI */
+  color: rgb(17, 57, 217) !important;
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar-toggle-button:hover {
+  background: #1565c0;
+  transform: scale(1.05);
+}
+
+
+.sidebar-toggle-button:hover {
+  background: #1565c0;
+  transform: scale(1.05);
+}
+
+.sidebar-toggle-button:active {
+  transform: scale(0.95);
+}
+
+.sidebar-toggle-button svg {
+  font-size: 20px;
+}
+
+/* Header del sidebar */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 24px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 10px;
+  height: 80px; /* Asegúrate que la altura sea suficiente */
+  box-sizing: border-box; /* Incluye padding en la altura */
+}
+
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-avatar {
+  width: 40px !important;
+  height: 40px !important;
+  background: linear-gradient(135deg, #60a5fa, #8cb9ff) !important;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.4) !important;
+  margin-right: 12px;
+  transition: all 0.2s ease;
+  flex-shrink: 0; /* Evita que el avatar se encoja */
+}
+
+.sidebar-title {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  white-space: nowrap; /* Evita que el texto se rompa */
+}
+
+.sidebar-title h6 {
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  font-size: 18px !important;
+  color: white;
+  margin-bottom: 0;
+  line-height: 1.2; /* Ajusta la altura de línea si es necesario */
+}
+
+.app-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px !important;
+  line-height: 1.2;
+}
+
+
+/* Contenedor de menú con scroll personalizado */
+.sidebar-menu-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  scrollbar-width: none !important;
+}
+
+.sidebar-menu-container::-webkit-scrollbar {
+  display: none !important;
+  width: 0px !important;
+}
+
+.sidebar-menu-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-menu-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.sidebar-menu-container:hover::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Categorías del menú */
+.sidebar-category {
+  margin-bottom: 8px;
+}
+
+.category-button {
+  width: 100% !important;
+  justify-content: space-between !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  text-transform: none !important;
+  padding: 8px 16px !important;
+  border-radius: 0 !important;
+  transition: background-color 0.15s ease !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.category-button:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* --- NUEVO: Estilo para el icono de categoría --- */
+.category-icon {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.7);
+  flex-shrink: 0; /* Evita que se encoja */
+}
+/* --------------------------------------------- */
+
+.category-title {
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+  letter-spacing: 1px !important;
+  text-align: left !important;
+  flex-grow: 1 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  white-space: nowrap; /* Evita que se rompa */
+  overflow: hidden; /* Oculta si se desborda */
+  text-overflow: ellipsis; /* Añade puntos suspensivos */
+}
+
+.category-divider {
+  height: 4px;
+  margin: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- NUEVO: Icono de categoría cuando está cerrado --- */
+.category-divider-closed {
+  height: 1px; /* Un divisor muy sutil */
+  margin: 8px 10px; /* Margen para espaciarlo de los iconos de los ítems */
+  background-color: rgba(255, 255, 255, 0.1); /* Color del divisor */
+  /* Si no quieres ningún divisor, puedes darle display: none; o eliminar el Box del JSX */
+}
+
+.category-icon-closed svg {
+    font-size: 20px; /* Tamaño del icono */
+}
+/* ---------------------------------------------------- */
+
+
+/* Links del sidebar */
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px; /* Ajusta el padding para que los iconos se centren bien cuando está cerrado */
+  width: 100%;
+  text-decoration: none;
+  color: white;
+  border-radius: 0 20px 20px 0; /* O el radio que prefieras */
+  margin: 2px 0; /* Ajusta el margen entre ítems */
+  transition: background-color 0.15s ease;
+  position: relative;
+  overflow: hidden; /* Para que el texto se oculte bien al cerrar */
+}
+
+.sidebar-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-link.active {
+  background-color: rgba(219, 234, 254, 0.15);
+}
+
+.active-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #60a5fa;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 8px rgba(96, 165, 250, 0.6);
+}
+
+.sidebar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.85;
+  margin-right: 16px;
+  min-width: 24px;
+  transition: color 0.15s ease, opacity 0.15s ease;
+  flex-shrink: 0; /* Evita que se encoja */
+}
+
+.sidebar-icon.active-icon {
+  color: #bfdbfe;
+  opacity: 1;
+}
+
+.sidebar-link-text {
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 14px;
+  transition: color 0.15s ease;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.sidebar-link-text.active-text {
+  font-weight: 500;
+  color: #bfdbfe;
+}
+
+/* Sección de cierre de sesión */
+.logout-section {
+  margin-top: auto;
+  padding: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logout-button {
+  width: 100% !important;
+  justify-content: center !important;
+  padding: 10px 15px !important;
+  background: linear-gradient(45deg, #2563eb, #3b82f6) !important;
+  box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3) !important;
+  transition: all 0.2s ease !important;
+  text-transform: none !important;
+  border-radius: 8px !important;
+  min-height: 40px; /* Asegura altura mínima */
+  white-space: nowrap; /* Evita que el texto se rompa */
+}
+
+.logout-button:hover {
+  background: linear-gradient(45deg, #d81d1d, #eb4625) !important;
+  box-shadow: 0 6px 8px rgba(37, 99, 235, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar-header {
+    padding: 16px;
+    height: 70px;
+  }
+
+  .sidebar-avatar {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .sidebar-title h6 {
+    font-size: 16px !important;
+  }
+
+  .sidebar-link {
+    padding: 10px 16px;
+  }
+
+  .category-button {
+    padding: 6px 14px !important;
+  }
+
+  .sidebar-toggle-button {
+    top: 68px;
+  }
+}

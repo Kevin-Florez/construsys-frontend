@@ -1,0 +1,74 @@
+#root {
+  max-width: 100%; /* Cambiado para que use todo el ancho disponible */
+  margin: 0;      /* Eliminamos el margen automático */
+  padding: 0;     /* Eliminamos el padding */
+  text-align: center;
+}
+
+/* Estructura principal de la aplicación */
+.app-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Contenido principal - con margen izquierdo para el sidebar */
+.content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 260px; /* Margen para el sidebar expandido (ancho del sidebar) */
+  transition: margin-left 0.15s ease-out; /* Transición para cuando se contrae el sidebar */
+  
+  /* ✨ LÍNEAS ELIMINADAS ✨ */
+  /* overflow-y: auto; */
+  /* height: 100vh; */
+}
+
+/* Cuando el sidebar está colapsado */
+.sidebar-collapsed .content {
+  margin-left: 80px; /* Ajustado al ancho del sidebar colapsado */
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  .content {
+    margin-left: 80px; /* Sidebar colapsado por defecto en móviles */
+    padding: 10px;
+  }
+}

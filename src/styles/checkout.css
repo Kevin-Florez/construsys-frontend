@@ -1,0 +1,216 @@
+/* Contenedor flexible para los dos botones */
+.submit-container-multiple {
+  display: flex;
+  justify-content: flex-end; /* o center si quieres centrarlos */
+  align-items: center;
+  gap: 12px; /* espacio entre botones */
+  margin-top: 1rem;
+}
+
+/* Estilo base común */
+.submit-container-multiple button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  min-width: 200px;   /* ancho mínimo */
+  height: 48px;       /* 🔹 misma altura fija */
+  white-space: nowrap; /* evita que el texto salte de línea */
+}
+
+
+/* Botón secundario (Guardar Cotización) */
+.secondary-button.quote-button {
+  background-color: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+.secondary-button.quote-button:hover:not(:disabled) {
+  background-color: #e5e7eb;
+}
+
+/* Botón principal (Confirmar Pedido) */
+.submit-button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+}
+.submit-button:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+/* Estado disabled */
+.submit-container-multiple button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* Contenedor en grid para mantener organizado */
+.preview-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+/* Cada tarjeta de comprobante */
+.preview-card {
+  position: relative;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.preview-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* Imagen */
+.preview-image {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Botón de eliminar */
+.remove-preview-button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  padding: 4px;
+  cursor: pointer;
+  color: #ef4444;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  transition: background 0.2s ease;
+}
+
+.remove-preview-button:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-image {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+.preview-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+
+.preview-image:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+
+.pago-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* botón a la izquierda y título centrado */
+  background-color: #007BFF; /* azul tipo Bootstrap */
+  color: white; /* texto en blanco */
+  padding: 12px 20px; /* espacio interno */
+  border-radius: 8px; /* bordes redondeados opcional */
+}
+
+
+.pago-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1E3A8A; /* azul oscuro */
+  color: white;
+  padding: 30px 24px; /* más alto */
+  border-radius: 8px;
+}
+
+.pago-header .pago-titulo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+.pago-header .back-button {
+  background: #F9FAFB; /* gris muy claro */
+  color: #1E3A8A; /* texto en azul oscuro */
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pago-header .back-button:hover {
+  background: #E5E7EB; /* gris medio */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.page-container {
+  background: #EFF6FF; /* azul claro */
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 1200px;
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+

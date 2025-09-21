@@ -1,0 +1,168 @@
+/* src/styles/Ventas.css */
+
+/* Contenedor principal del módulo */
+.ventas-container {
+    padding: 24px;
+    background-color: #f8fafc;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    max-width: 95%;
+    margin: 24px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Encabezado del Módulo */
+.ventas-title-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e0e7ff;
+}
+
+.ventas-title-header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1e40af;
+    margin: 0;
+    position: relative;
+}
+
+.ventas-title-header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -17px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    border-radius: 3px;
+}
+
+/* Barra de Herramientas */
+.ventas-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.ventas-toolbar .search-input {
+    min-width: 300px;
+    flex-grow: 1;
+}
+
+.ventas-toolbar .add-button {
+    background: linear-gradient(45deg, #2563eb, #3b82f6) !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+    transition: all 0.3s ease !important;
+    text-transform: none !important;
+    white-space: nowrap;
+}
+
+.ventas-toolbar .add-button:hover {
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4) !important;
+    transform: translateY(-2px) !important;
+    background: linear-gradient(45deg, #1d4ed8, #3b82f6) !important;
+}
+
+/* Tabla de Ventas */
+.ventas-table {
+    margin-top: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.ventas-table th {
+    background-color: #dbeafe;
+    color: #1e40af;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 16px;
+    border-bottom: 2px solid #bfdbfe;
+}
+
+.ventas-table td {
+    padding: 14px 16px;
+    color: #475569;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+.ventas-table tr:hover {
+    background-color: #f0f9ff !important;
+}
+
+/* Etiquetas de Estado */
+.estado-label {
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 5px 12px;
+    border-radius: 16px;
+    display: inline-block;
+    min-width: 90px;
+    text-align: center;
+    line-height: 1.4;
+    text-transform: capitalize;
+    border: 1px solid transparent;
+}
+
+.estado-completada {
+  background-color: #dcfce7;
+  color: #16a34a !important;
+  border-color: #bbf7d0;
+}
+.estado-anulada { background-color: #fee2e2; color: #ef4444; border-color: #fecaca; }
+
+.table-pagination {
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* Estilos para Diálogos */
+.venta-dialog .MuiDialogTitle-root {
+    background: linear-gradient(to right, #e0f2fe, #bfdbfe);
+    color: #1e40af;
+    font-weight: 600 !important;
+    padding: 16px 24px !important;
+    border-bottom: 1px solid #bfdbfe;
+}
+
+.venta-dialog .MuiDialogContent-root {
+    background-color: #fbfdff;
+    padding: 24px !important;
+}
+
+.venta-dialog .MuiDialogActions-root {
+    padding: 16px 24px !important;
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
+
+.loading-indicator, .no-data {
+    text-align: center;
+    padding: 48px;
+    font-style: italic;
+    color: #64748b;
+}
+
+
+.ventas-table .MuiTableCell-head {
+  text-transform: none !important;
+}
+
+
+
+.mayus .MuiTableCell-head {
+  text-transform: none !important;
+}
+
+
+
+.dialog-content .MuiTableCell-head {
+  text-transform: none !important;
+}
