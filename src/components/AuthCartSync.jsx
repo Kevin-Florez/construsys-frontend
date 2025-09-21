@@ -5,6 +5,9 @@ import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import { toast } from 'sonner';
 
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
+
 const AuthCartSync = () => {
     const { user, authTokens, loading: isAuthLoading } = useAuth();
     const { cart, clearCart, setCart } = useCart();
