@@ -14,7 +14,7 @@ const CambiarContrasena = () => {
         passwordActual: "",
         passwordNuevo: "",
         passwordNuevoConfirmacion: ""
-    });
+    }); 
     const [validFields, setValidFields] = useState({
         passwordActual: null,
         passwordNuevo: null,
