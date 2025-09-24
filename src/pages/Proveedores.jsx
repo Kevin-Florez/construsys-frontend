@@ -215,7 +215,7 @@ const Proveedores = () => {
             ...formState,
             contacto: formState.es_empresa ? formState.contacto : null,
         };
-        const url = editMode ? `${API_PROVEEDORES_ENDPOINT}${selectedProveedor.id}/` : API_PROVEEDORES_ENDPOINT;
+        const url = editMode ? `${API_BASE_URL}/proveedores/${selectedProveedor.id}/` : `${API_BASE_URL}/proveedores/`;
         const method = editMode ? "PUT" : "POST";
         try {
             const res = await fetch(url, {
@@ -242,7 +242,7 @@ const Proveedores = () => {
         if (!selectedForDeletion || !token) return;
         setActionLoading(true);
         try {
-            const res = await fetch(`${API_PROVEEDORES_ENDPOINT}${selectedForDeletion.id}/`, {
+            const res = await fetch(`${API_BASE_URL}/proveedores/${selectedForDeletion.id}/`, {
                 method: "DELETE",
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -270,7 +270,7 @@ const Proveedores = () => {
     const nuevoEstado = proveedor.estado === "Activo" ? "Inactivo" : "Activo";
 
     try {
-        const res = await fetch(`${API_PROVEEDORES_ENDPOINT}${proveedor.id}/`, {
+        const res = await fetch(`${API_BASE_URL}/proveedores/${proveedor.id}/`, {
             method: "PATCH",
             headers: { 
                 "Content-Type": "application/json", 
