@@ -364,7 +364,7 @@ export default function CatalogoCliente() {
         </>
     ) : (
         <div className="no-results-container">
-            <Frown className="no-results-icon" size={40} />
+            
             <p className="no-results-text">No se encontraron productos que coincidan con tu búsqueda o filtros.</p>
         </div>
     )}
