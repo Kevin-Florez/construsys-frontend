@@ -14,7 +14,7 @@ import {
 import { useAuth } from "../context/AuthContext";
 import "../styles/Clientes.css"; 
 
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 const tiposDocumentoCliente = [
     { value: "CC", label: "Cédula de Ciudadanía" },
@@ -86,7 +86,7 @@ const Clientes = () => {
             return;
         }
         try {
-            const response = await fetch(`${API_BASE_URL}/api/clientes/`, {
+            const response = await fetch(`${API_BASE_URL}/clientes/`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (!response.ok) {
@@ -233,7 +233,7 @@ const Clientes = () => {
         const token = authTokens?.access;
         const { id, ...payload } = clienteActual;
         const method = modoEdicion ? 'PUT' : 'POST';
-        const url = modoEdicion ? `${API_BASE_URL}/api/clientes/${id}/` : `${API_BASE_URL}/api/clientes/`;
+        const url = modoEdicion ? `${API_BASE_URL}/clientes/${id}/` : `${API_BASE_URL}/clientes/`;
         try {
             const response = await fetch(url, {
                 method, headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
@@ -263,7 +263,7 @@ const Clientes = () => {
         setActionLoading(true);
         const token = authTokens?.access;
         try {
-            const response = await fetch(`${API_BASE_URL}/api/clientes/${selectedForDeletion}/`, { method: 'DELETE', headers: { 'Authorization': `Bearer ${token}` } });
+            const response = await fetch(`${API_BASE_URL}/clientes/${selectedForDeletion}/`, { method: 'DELETE', headers: { 'Authorization': `Bearer ${token}` } });
             if (!response.ok && response.status !== 204) {
                 const errorData = await response.json();
                 throw new Error(errorData.detail || "Error al eliminar.");
@@ -301,7 +301,7 @@ const Clientes = () => {
         const token = authTokens?.access;
         const nuevoEstado = !clienteAActualizar.activo;
         try {
-            const response = await fetch(`${API_BASE_URL}/api/clientes/${id}/`, {
+            const response = await fetch(`${API_BASE_URL}/clientes/${id}/`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
                 body: JSON.stringify({ activo: nuevoEstado }),
