@@ -16,7 +16,7 @@ import '../styles/Creditos.css';
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 const formatCurrency = (value) => `$${parseFloat(value).toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
 const formatDate = (dateString) => new Date(dateString).toLocaleDateString('es-CO', { timeZone: 'UTC' });
-
+ 
 const getEstadoStyles = (estado) => {
     const estadoNormalizado = estado?.toLowerCase() || 'desconocido';
     switch (estadoNormalizado) {
