@@ -18,7 +18,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000
 const formatCurrency = (value) => `$${parseFloat(value).toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
 
 const CotizacionesLista = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
     // ✨ 2. Obtenemos los datos de autenticación y privilegios del contexto
     const { authTokens, userPrivileges, logout } = useAuth();
 
