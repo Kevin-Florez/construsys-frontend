@@ -17,7 +17,7 @@ export default function DetalleCotizacionPage() {
         // Redirige al invitado a la página de inicio al cerrar el modal
         navigate("/");
         toast.info("Gracias por visitar la cotización.");
-    };
+    }; 
 
     // Esta página solo renderiza el modal y lo controla
     return (
