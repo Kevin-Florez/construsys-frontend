@@ -19,7 +19,7 @@ import { useAuth } from '../context/AuthContext';
 import { toast } from 'sonner';
 import "../styles/GestionDevoluciones.css";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
+const API_BASE_URL = "http://localhost:8000/api";
 const formatDate = (dateString) => dateString ? new Date(dateString).toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }) : 'N/A';
 
 const getGestionStatusChip = (gestion, esDefectuoso) => {
@@ -357,8 +357,35 @@ const filteredDevoluciones = useMemo(() => {
                 labelRowsPerPage="Filas por página:"
             />
 
-            <Dialog open={gestionModalOpen} onClose={handleCloseGestionModal} fullWidth maxWidth="sm">
-                <DialogTitle sx={{ display: 'flex', alignItems: 'center' }}><SendIcon sx={{ mr: 1 }}/> Iniciar Gestión con Proveedor</DialogTitle>
+            <Dialog
+  open={gestionModalOpen}
+  onClose={handleCloseGestionModal}
+  fullWidth
+  maxWidth="sm"
+  className="usuario-dialog confirm-dialog"
+>
+  <DialogTitle
+    className="dialog-title confirm-dialog-title"
+    sx={{
+      background: 'linear-gradient(90deg, #e0f2fe, #bfdbfe)',
+      color: '#1e40af !important',
+      padding: '16px 24px',
+      fontWeight: 600,
+      borderBottom: '1px solid #bfdbfe',
+      display: 'flex',
+      alignItems: 'center',
+      '& .MuiTypography-root': {
+        color: '#1e40af' // protege a cualquier Typography interno
+      },
+      '& svg': {
+        color: '#1e40af' // fuerza el color del icono
+      }
+    }}
+  >
+    <SendIcon sx={{ mr: 1 }} /> Iniciar Gestión con Proveedor
+  </DialogTitle>
+
+
                 <DialogContent>
                     <Typography gutterBottom>Para la devolución <strong>#{selectedDevolucion?.id}</strong></Typography>
                     <Autocomplete

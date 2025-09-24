@@ -13,9 +13,9 @@ import {
 import { useAuth } from "../context/AuthContext";
 import "../styles/Usuarios.css"; 
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
-const API_USUARIOS_ENDPOINT = `${API_BASE_URL}/usuarios/`;
-const API_ROLES_ENDPOINT = `${API_BASE_URL}/roles-permisos/roles/`;
+const API_BASE_URL = "http://localhost:8000";
+const API_USUARIOS_ENDPOINT = `${API_BASE_URL}/api/usuarios/`;
+const API_ROLES_ENDPOINT = `${API_BASE_URL}/api/roles-permisos/roles/`;
 
 const tiposDocumento = [
     { value: "CC", label: "Cédula de Ciudadanía" },
@@ -202,9 +202,19 @@ const Usuarios = () => {
                 body: JSON.stringify(userData),
             });
             if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.detail || "Error al guardar el usuario.");
-            }
+    const errorData = await response.json();
+    
+    // Si hay errores de campos específicos (ej: numero_documento, email, etc.)
+    if (typeof errorData === "object") {
+        const firstKey = Object.keys(errorData)[0];
+        const firstError = Array.isArray(errorData[firstKey]) ? errorData[firstKey][0] : errorData[firstKey];
+        throw new Error(firstError || "Error al guardar el usuario.");
+    }
+
+    // Fallback
+    throw new Error(errorData.detail || "Error al guardar el usuario.");
+}
+
             showNotification(`Usuario ${editMode ? 'actualizado' : 'creado'} correctamente.`);
             handleClose();
             await fetchData();
