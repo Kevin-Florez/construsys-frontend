@@ -32,7 +32,7 @@ import "../styles/Dashboard.css";
 
 const API_BASE_URL_DASHBOARD = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
-const formatCurrency = (value) => {
+const formatCurrency = (value) => { 
     const number = parseFloat(value);
     if (isNaN(number)) return "$0";
     return `$${number.toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
