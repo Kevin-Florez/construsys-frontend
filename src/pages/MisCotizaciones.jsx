@@ -14,7 +14,7 @@ import { Description, Visibility as VisibilityIcon, Search as SearchIcon, Clear 
 import '../styles/MisCotizaciones.css';
 import CotizacionDetalleModal from '../components/CotizacionDetalleModal'; // ✨ IMPORTA EL MODAL
 
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 const StatusBadge = ({ status }) => {
     const statusInfo = {

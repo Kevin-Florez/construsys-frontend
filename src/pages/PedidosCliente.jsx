@@ -13,7 +13,7 @@ import { formatCurrency, formatFecha } from '../utils/formatters';
 import PedidoDetalleModal from '../components/PedidoDetalleModal'; // ✨ Reincorporamos el modal
 import '../styles/PedidosCliente.css';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 const getStatusChipColor = (estado) => {
     const statusMap = {
