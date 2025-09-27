@@ -15,7 +15,7 @@ export default function Contacto() {
         nombre: '',
         email: '',
         asunto: '',
-        mensaje: ''
+        mensaje: '' 
     });
     const [errors, setErrors] = useState({});
     const [isLoading, setIsLoading] = useState(false);
