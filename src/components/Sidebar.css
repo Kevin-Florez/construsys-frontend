@@ -152,15 +152,15 @@
 
 .category-title {
   font-weight: 500 !important;
-  text-transform: uppercase !important;
-  font-size: 11px !important;
+  text-transform: none !important; /* 👈 Ahora respetará mayúsculas/minúsculas */
+  font-size: 15px !important;
   letter-spacing: 1px !important;
   text-align: left !important;
   flex-grow: 1 !important;
   color: rgba(255, 255, 255, 0.9) !important;
-  white-space: nowrap; /* Evita que se rompa */
-  overflow: hidden; /* Oculta si se desborda */
-  text-overflow: ellipsis; /* Añade puntos suspensivos */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .category-divider {
