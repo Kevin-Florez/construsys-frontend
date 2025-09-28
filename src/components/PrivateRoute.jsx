@@ -5,11 +5,11 @@ import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Box, CircularProgress } from '@mui/material';
 
-const PrivateRoute = ({ requiredPrivilege, allowedRoles }) => {
-    const { user, userPrivileges, loading } = useAuth();
+const PrivateRoute = ({ requiredPrivilege, moduleAccess, allowedRoles }) => {
+    const { user, loading, hasModuleAccess, hasPrivilege } = useAuth();
     const location = useLocation();
 
-    // 1. Muestra un spinner mientras el contexto determina el estado de autenticación
+    // Muestra un spinner mientras se verifica el estado de autenticación
     if (loading) {
         return (
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
@@ -18,23 +18,35 @@ const PrivateRoute = ({ requiredPrivilege, allowedRoles }) => {
         );
     }
 
-    // 2. Si no hay usuario después de cargar, redirige al login
+    // Si no hay usuario, redirige al login, guardando la página que intentaba visitar
     if (!user) {
-        return <Navigate to="/login" state={{ from: location }} replace />;
+        return <Navigate to={`/login?redirect=${location.pathname}`} replace />;
     }
 
-    // ✨ CORRECCIÓN: Comparamos con 'user.rol.nombre' en lugar del objeto 'user.rol' completo.
-    // 3. Verificación de Rol (para rutas de cliente)
-    if (allowedRoles && !allowedRoles.includes(user.rol?.nombre)) {
+    // Comienza asumiendo que el usuario tiene acceso
+    let hasAccess = true;
+
+    // 1. Verifica si el rol del usuario está en la lista de roles permitidos
+    if (allowedRoles) {
+        hasAccess = hasAccess && allowedRoles.includes(user.rol.nombre);
+    }
+
+    // 2. Verifica si el usuario tiene acceso general al módulo
+    if (moduleAccess) {
+        hasAccess = hasAccess && hasModuleAccess(moduleAccess);
+    }
+
+    // 3. Verifica si el usuario tiene un privilegio específico y requerido
+    if (requiredPrivilege) {
+        hasAccess = hasAccess && hasPrivilege(requiredPrivilege);
+    }
+
+    // Si alguna de las verificaciones falló, redirige a la página de no autorizado
+    if (!hasAccess) {
         return <Navigate to="/unauthorized" replace />;
     }
 
-    // 4. Verificación de Privilegio (para rutas de admin)
-    if (requiredPrivilege && !userPrivileges.includes(requiredPrivilege)) {
-        return <Navigate to="/unauthorized" replace />;
-    }
-
-    // 5. Si pasa todas las verificaciones, permite el acceso
+    // Si todas las verificaciones son exitosas, muestra el contenido de la ruta
     return <Outlet />;
 };
 

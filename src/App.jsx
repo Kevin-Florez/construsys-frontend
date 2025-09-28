@@ -24,7 +24,7 @@ import OrderLookup from './pages/OrderLookup';
 import GuestOrderStatus from './pages/GuestOrderStatus';
 
 // --- PÁGINAS DE AUTENTICACIÓN Y OTROS ---
-import Login from "./pages/login";
+import Login from "./pages/Login";
 import Register from "./pages/Register";
 import RecuperarContrasena from "./pages/RecuperarContraseña";
 import ResetPassword from "./pages/ResetPassword";
@@ -49,7 +49,6 @@ import AdminPedidos from "./pages/AdminPedidos";
 import Marcas from "./pages/Marcas";
 import AdminCotizaciones from './pages/AdminCotizaciones';
 import AdminCotizacionCreate from './pages/AdminCotizacionCreate';
-
 import BajasStock from './pages/BajasStock';
 import GestionDevoluciones from './pages/GestionDevoluciones';
 
@@ -114,32 +113,34 @@ function App() {
                         </Route>
 
                         {/* --- RUTAS DE GESTIÓN (ADMIN) CON LAYOUT Y PRIVILEGIOS --- */}
-                        <Route element={<PrivateRoute requiredPrivilege="dashboard_ver" />}>
+                        {/* ✨ Se cambia 'requiredPrivilege' por 'moduleAccess' en las vistas de lista principales */}
+
+                        <Route element={<PrivateRoute moduleAccess="Dashboard" />}>
                             <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} />
                         </Route>
                         
                         {/* Módulo de Ventas */}
-                        <Route element={<PrivateRoute requiredPrivilege="ventas_ver" />}>
+                        <Route element={<PrivateRoute moduleAccess="Ventas" />}>
                             <Route path="/ventas" element={<Layout><VentasLista /></Layout>} />
                         </Route>
                         <Route element={<PrivateRoute requiredPrivilege="ventas_crear" />}>
-                                <Route path="/ventas/nueva" element={<Layout><VentasCreate /></Layout>} />
+                            <Route path="/ventas/nueva" element={<Layout><VentasCreate /></Layout>} />
                         </Route>
                         <Route element={<PrivateRoute requiredPrivilege="ventas_devolucion" />}>
-                                <Route path="/ventas/:ventaId/devolucion" element={<Layout><DevolucionVenta /></Layout>} />
+                            <Route path="/ventas/:ventaId/devolucion" element={<Layout><DevolucionVenta /></Layout>} />
                         </Route>
 
-                        <Route element={<PrivateRoute requiredPrivilege="devoluciones_ver_devolucion_proveedor" />}>
+                        <Route element={<PrivateRoute moduleAccess="Devoluciones" />}>
                             <Route path="/devoluciones" element={<Layout><GestionDevoluciones /></Layout>} />
                         </Route>
 
                         {/* Módulo de Bajas de Stock */}
-                        <Route element={<PrivateRoute requiredPrivilege="stock_ver_bajas" />}>
+                        <Route element={<PrivateRoute moduleAccess="Stock" />}>
                             <Route path="/stock/bajas" element={<Layout><BajasStock /></Layout>} />
                         </Route>
                         
                         {/* Módulo de Compras */}
-                        <Route element={<PrivateRoute requiredPrivilege="compras_ver" />}>
+                        <Route element={<PrivateRoute moduleAccess="Compras" />}>
                             <Route path="/compras" element={<Layout><ComprasLista /></Layout>} />
                         </Route>
                         <Route element={<PrivateRoute requiredPrivilege="compras_crear" />}>
@@ -147,51 +148,49 @@ function App() {
                         </Route>
 
                         {/* Otros Módulos de Gestión */}
-                        <Route element={<PrivateRoute requiredPrivilege="clientes_ver" />}>
+                        <Route element={<PrivateRoute moduleAccess="Clientes" />}>
                             <Route path="/clientes" element={<Layout><Clientes /></Layout>} />
                         </Route>
-                        <Route element={<PrivateRoute requiredPrivilege="proveedores_ver" />}>
+                        <Route element={<PrivateRoute moduleAccess="Proveedores" />}>
                             <Route path="/proveedores" element={<Layout><Proveedores /></Layout>} />
                         </Route>
-                        <Route element={<PrivateRoute requiredPrivilege="productos_ver" />}>
+                        <Route element={<PrivateRoute moduleAccess="Productos" />}>
                             <Route path="/productos" element={<Layout><Productos /></Layout>} />
                         </Route>
-                        <Route element={<PrivateRoute requiredPrivilege="marcas_ver" />}>
+                        <Route element={<PrivateRoute moduleAccess="Marcas" />}>
                             <Route path="/marcas" element={<Layout><Marcas /></Layout>} />
                         </Route>
-                        <Route element={<PrivateRoute requiredPrivilege="categorias_ver" />}>
+                        <Route element={<PrivateRoute moduleAccess="Categorias" />}>
                             <Route path="/categoria-producto" element={<Layout><CategoriaProducto /></Layout>} />
                         </Route>
-                        <Route element={<PrivateRoute requiredPrivilege="roles_ver" />}>
+                        <Route element={<PrivateRoute moduleAccess="Roles" />}>
                             <Route path="/roles" element={<Layout><Roles /></Layout>} />
                         </Route>
-                        <Route element={<PrivateRoute requiredPrivilege="usuarios_ver" />}>
+                        <Route element={<PrivateRoute moduleAccess="Usuarios" />}>
                             <Route path="/usuarios" element={<Layout><Usuarios /></Layout>} />
                         </Route>
-                        <Route element={<PrivateRoute requiredPrivilege="cotizaciones_ver" />}>
+                        <Route element={<PrivateRoute moduleAccess="Cotizaciones" />}>
                                 <Route path="/cotizaciones" element={<Layout><AdminCotizaciones /></Layout>} />
-                            </Route>
-                            <Route element={<PrivateRoute requiredPrivilege="cotizaciones_crear" />}>
+                        </Route>
+                        <Route element={<PrivateRoute requiredPrivilege="cotizaciones_crear" />}>
                                 <Route path="/admin/cotizaciones/crear" element={<Layout><AdminCotizacionCreate /></Layout>} />
-                            </Route>
-                        <Route element={<PrivateRoute requiredPrivilege="pedidos_ver" />}>
+                        </Route>
+                        <Route element={<PrivateRoute moduleAccess="Pedidos" />}>
                             <Route path="/pedidos" element={<Layout><AdminPedidos /></Layout>} />
                         </Route>
                         
-                        {/* --- MÓDULO DE CRÉDITOS Y SOLICITUDES (ADMIN) --- */}
-                        <Route element={<PrivateRoute requiredPrivilege="creditos_ver" />}>
+                        {/* Módulo de Créditos y Solicitudes */}
+                        <Route element={<PrivateRoute moduleAccess="Creditos" />}>
                             <Route path="/creditos" element={<Layout><CreditosAdmin /></Layout>} />
                             <Route path="/creditos/:creditoId" element={<Layout><CreditoDetalle /></Layout>} />
                         </Route>
 
-                        <Route element={<PrivateRoute requiredPrivilege="solicitudes_ver" />}>
-                             <Route path="/solicitudes" element={<Layout><Solicitudes /></Layout>} />
+                        <Route element={<PrivateRoute moduleAccess="Solicitudes" />}>
+                            <Route path="/solicitudes" element={<Layout><Solicitudes /></Layout>} />
                         </Route>
-
                         <Route element={<PrivateRoute requiredPrivilege="solicitudes_gestionar" />}>
                             <Route path="/solicitudes/:solicitudId" element={<Layout><SolicitudDetalle /></Layout>} />
                         </Route>
-
                         <Route element={<PrivateRoute requiredPrivilege="solicitudes_crear" />}>
                             <Route path="/solicitudes/nueva" element={<Layout><SolicitudCreate /></Layout>} />
                         </Route>

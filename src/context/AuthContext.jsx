@@ -4,8 +4,6 @@ import React, { createContext, useState, useContext, useEffect, useCallback } fr
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
 import { CircularProgress, Box } from '@mui/material';
-// ✨ 1. Se elimina la importación de useCart para romper la dependencia circular
-// import { useCart } from './CartContext'; 
 
 const AuthContext = createContext();
 
@@ -41,9 +39,6 @@ export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     
-    // ✨ 2. Se elimina la llamada a useCart de este archivo
-    // const { cart, clearCart, setCart } = useCart(); 
-
     useEffect(() => {
         const initialState = getInitialState();
         setAuthTokens(initialState.authTokens);
@@ -55,12 +50,9 @@ export const AuthProvider = ({ children }) => {
         setAuthTokens(null);
         setUser(null);
         localStorage.removeItem('authTokens');
-        // ✨ 3. La responsabilidad de limpiar el carrito ya no está aquí
-        // clearCart(); 
         navigate('/login');
     }, [navigate]); 
 
-    // ✨ 4. La función 'login' se simplifica. La lógica de unir carritos se moverá a CartContext
     const login = useCallback((data) => {
         try {
             const decoded = jwtDecode(data.access);
@@ -82,18 +74,50 @@ export const AuthProvider = ({ children }) => {
                 const targetUrl = redirectUrl || (structuredUser.rol.nombre === 'Cliente' ? "/inicio-cliente" : "/dashboard");
                 navigate(targetUrl, { replace: true });
             }
-
         } catch (error) {
             console.error("Error en el proceso de login:", error);
-            // Se llama a una versión de logout que ya no depende de clearCart
-            setAuthTokens(null);
-            setUser(null);
-            localStorage.removeItem('authTokens');
-            navigate('/login');
+            logout();
         }
-    }, [navigate]);
+    }, [navigate, logout]);
     
-    const contextData = { user, authTokens, loading, login, logout, userPrivileges: user?.privileges || [] };
+    const userPrivileges = user?.privileges || [];
+
+    // ✨ --- INICIO DE NUEVAS FUNCIONES AUXILIARES --- ✨
+    /**
+     * Verifica si el usuario tiene un privilegio específico.
+     * @param {string} privilege El codename del privilegio a verificar (ej: 'ventas_crear').
+     * @returns {boolean} True si el usuario tiene el privilegio.
+     */
+    const hasPrivilege = useCallback((privilege) => {
+        if (!privilege) return false;
+        return userPrivileges.includes(privilege);
+    }, [userPrivileges]);
+
+    /**
+     * Verifica si el usuario tiene CUALQUIER privilegio dentro de un módulo.
+     * @param {string} moduleName El nombre legible del módulo (ej: 'Ventas' o 'Solicitudes Crédito').
+     * @returns {boolean} True si el usuario tiene al menos un privilegio para ese módulo.
+     */
+    const hasModuleAccess = useCallback((moduleName) => {
+        if (!moduleName || userPrivileges.length === 0) {
+            return false;
+        }
+        // Convierte 'Ventas' a 'ventas_' o 'Solicitudes Crédito' a 'solicitudes_crédito_'
+        const prefix = moduleName.toLowerCase().replace(/\s+/g, '_') + '_';
+        return userPrivileges.some(p => p.startsWith(prefix));
+    }, [userPrivileges]);
+    // ✨ --- FIN DE NUEVAS FUNCIONES AUXILIARES --- ✨
+
+    const contextData = { 
+        user, 
+        authTokens, 
+        loading, 
+        login, 
+        logout, 
+        userPrivileges,
+        hasPrivilege,      // Función para verificar un privilegio exacto
+        hasModuleAccess    // Nueva función para verificar acceso a un módulo completo
+    };
 
     if (loading) {
         return <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}></Box>;
