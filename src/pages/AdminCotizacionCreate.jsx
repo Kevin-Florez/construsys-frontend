@@ -266,51 +266,7 @@ export default function AdminCotizacionCreate() {
             </div>
 
             <Grid container spacing={3}>
-                <Grid item xs={12} lg={8}>
-                    <Paper elevation={2} sx={{ p: 3, borderRadius: '12px' }}>
-                        <Typography variant="h6" gutterBottom>Productos</Typography>
-                        <ProductSearchInput onProductSelect={handleAddProduct} label="Buscar y agregar producto..." />
-                        <TableContainer component={Paper} elevation={0} variant="outlined" sx={{ mt: 3 }} className='ccc'>
-                            <Table size="small">
-                                <TableHead sx={{ backgroundColor: "#f4f5f7" }}>
-                                    <TableRow>
-                                        <TableCell align="center">Producto</TableCell>
-                                        <TableCell align="center" sx={{ width: '120px' }}>Cantidad</TableCell>
-                                        <TableCell align="center">Precio Unit.</TableCell>
-                                        <TableCell align="center">Subtotal</TableCell>
-                                        <TableCell align="center">Acción</TableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    {items.length === 0 ? (
-                                        <TableRow><TableCell colSpan={5} align="center" sx={{ py: 4, color: 'text.secondary' }}>Añada productos a la cotización</TableCell></TableRow>
-                                    ) : (
-                                        items.map((item, index) => (
-                                            <TableRow key={item.id} hover>
-                                                <TableCell align="center">{item.nombre}</TableCell>
-                                                <TableCell align="center">
-                                                    <TextField type="number" value={item.cantidad}
-                                                        onChange={(e) => handleItemCantidadChange(index, e.target.value)}
-                                                        size="small" sx={{ width: '90px' }} inputProps={{ min: 1 }}
-                                                    />
-                                                </TableCell>
-                                                <TableCell align="center">{formatCurrency(item.precio_unitario)}</TableCell>
-                                                <TableCell align="center" sx={{fontWeight: 500}}>{formatCurrency(item.subtotal)}</TableCell>
-                                                <TableCell align="center">
-                                                    <Tooltip title="Eliminar">
-                                                        <IconButton onClick={() => handleRemoveItem(index)} color="error" size="small">
-                                                            <DeleteIcon />
-                                                        </IconButton>
-                                                    </Tooltip>
-                                                </TableCell>
-                                            </TableRow>
-                                        ))
-                                    )}
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
-                    </Paper>
-                </Grid>
+                
 
                 <Grid item xs={12} lg={4}>
                     <Paper elevation={2} sx={{ p: 3, borderRadius: '12px' }}>
@@ -375,6 +331,52 @@ export default function AdminCotizacionCreate() {
                         >
                             {saving ? <CircularProgress size={26} color="inherit" /> : "Guardar Cotización"}
                         </Button>
+                    </Paper>
+                </Grid>
+
+                <Grid item xs={12} lg={8}>
+                    <Paper elevation={2} sx={{ p: 3, borderRadius: '12px' }}>
+                        <Typography variant="h6" gutterBottom>Productos</Typography>
+                        <ProductSearchInput onProductSelect={handleAddProduct} label="Buscar y agregar producto..." />
+                        <TableContainer component={Paper} elevation={0} variant="outlined" sx={{ mt: 3 }} className='ccc'>
+                            <Table size="small">
+                                <TableHead sx={{ backgroundColor: "#f4f5f7" }}>
+                                    <TableRow>
+                                        <TableCell align="center">Producto</TableCell>
+                                        <TableCell align="center" sx={{ width: '120px' }}>Cantidad</TableCell>
+                                        <TableCell align="center">Precio Unit.</TableCell>
+                                        <TableCell align="center">Subtotal</TableCell>
+                                        <TableCell align="center">Acción</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {items.length === 0 ? (
+                                        <TableRow><TableCell colSpan={5} align="center" sx={{ py: 4, color: 'text.secondary' }}>Añada productos a la cotización</TableCell></TableRow>
+                                    ) : (
+                                        items.map((item, index) => (
+                                            <TableRow key={item.id} hover>
+                                                <TableCell align="center">{item.nombre}</TableCell>
+                                                <TableCell align="center">
+                                                    <TextField type="number" value={item.cantidad}
+                                                        onChange={(e) => handleItemCantidadChange(index, e.target.value)}
+                                                        size="small" sx={{ width: '90px' }} inputProps={{ min: 1 }}
+                                                    />
+                                                </TableCell>
+                                                <TableCell align="center">{formatCurrency(item.precio_unitario)}</TableCell>
+                                                <TableCell align="center" sx={{fontWeight: 500}}>{formatCurrency(item.subtotal)}</TableCell>
+                                                <TableCell align="center">
+                                                    <Tooltip title="Eliminar">
+                                                        <IconButton onClick={() => handleRemoveItem(index)} color="error" size="small">
+                                                            <DeleteIcon />
+                                                        </IconButton>
+                                                    </Tooltip>
+                                                </TableCell>
+                                            </TableRow>
+                                        ))
+                                    )}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
                     </Paper>
                 </Grid>
             </Grid>
