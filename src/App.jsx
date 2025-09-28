@@ -24,7 +24,7 @@ import OrderLookup from './pages/OrderLookup';
 import GuestOrderStatus from './pages/GuestOrderStatus';
 
 // --- PÁGINAS DE AUTENTICACIÓN Y OTROS ---
-import Login from "./pages/Login";
+import Login from "./pages/login";
 import Register from "./pages/Register";
 import RecuperarContrasena from "./pages/RecuperarContraseña";
 import ResetPassword from "./pages/ResetPassword";
