@@ -346,47 +346,7 @@ const VentasCreate = () => {
             </div>
 
             <Grid container spacing={3} sx={{ mt: 1 }}>
-                <Grid item xs={12} lg={8}>
-                    <Paper elevation={2} sx={{ p: 3, borderRadius: '12px' }}>
-                        <ProductSearchInput onProductSelect={handleAddProduct} label="Buscar y agregar producto a la venta" />
-                        <TableContainer component={Paper} elevation={0} variant="outlined" sx={{ mt: 3 }} className='mayus'>
-                            <Table size="small">
-                                <TableHead sx={{ backgroundColor: "#e8eaf6" }}>
-                                    <TableRow>
-                                        <TableCell align="center">Producto</TableCell>
-                                        <TableCell align="center">Cantidad</TableCell>
-                                        <TableCell align="center">Precio Unit.</TableCell>
-                                        <TableCell align="center">Subtotal</TableCell>
-                                        <TableCell align="center">Acción</TableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    {items.length === 0 ? (
-                                        <TableRow><TableCell colSpan={5} align="center" sx={{ py: 4, color: 'text.secondary' }}>Añada productos a la venta</TableCell></TableRow>
-                                    ) : (
-                                        items.map((item, index) => (
-                                            <TableRow key={item.id}>
-                                                <TableCell align="center">{item.nombre} <Typography variant="caption" color="textSecondary">({item.marca?.nombre || 'Sin marca'})</Typography></TableCell>
-                                                <TableCell align="center">
-                                                    <TextField type="number" value={item.cantidad}
-                                                        onChange={(e) => handleItemCantidadChange(index, e.target.value)}
-                                                        size="small" sx={{ width: '90px' }}
-                                                        inputProps={{ min: 1, max: item.stock_disponible }}
-                                                    />
-                                                </TableCell>
-                                                <TableCell align="center">{formatCurrency(item.precio_unitario_venta)}</TableCell>
-                                                <TableCell align="center">{formatCurrency(item.subtotal)}</TableCell>
-                                                <TableCell align="center">
-                                                    <Tooltip title="Eliminar"><IconButton onClick={() => handleRemoveItem(index)} color="error" size="small"><DeleteIcon /></IconButton></Tooltip>
-                                                </TableCell>
-                                            </TableRow>
-                                        ))
-                                    )}
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
-                    </Paper>
-                </Grid>
+                
 
                 <Grid item xs={12} lg={4}>
                     <SummaryCard title="Resumen y Pago" subtotal={totals.subtotal} iva={totals.iva} total={totals.total}>
@@ -485,6 +445,48 @@ const VentasCreate = () => {
                             {saving ? <CircularProgress size={26} color="inherit" /> : "Finalizar Venta"}
                         </Button>
                     </SummaryCard>
+                </Grid>
+
+                <Grid item xs={12} lg={8}>
+                    <Paper elevation={2} sx={{ p: 3, borderRadius: '12px' }}>
+                        <ProductSearchInput onProductSelect={handleAddProduct} label="Buscar y agregar producto a la venta" />
+                        <TableContainer component={Paper} elevation={0} variant="outlined" sx={{ mt: 3 }} className='mayus'>
+                            <Table size="small">
+                                <TableHead sx={{ backgroundColor: "#e8eaf6" }}>
+                                    <TableRow>
+                                        <TableCell align="center">Producto</TableCell>
+                                        <TableCell align="center">Cantidad</TableCell>
+                                        <TableCell align="center">Precio Unit.</TableCell>
+                                        <TableCell align="center">Subtotal</TableCell>
+                                        <TableCell align="center">Acción</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {items.length === 0 ? (
+                                        <TableRow><TableCell colSpan={5} align="center" sx={{ py: 4, color: 'text.secondary' }}>Añada productos a la venta</TableCell></TableRow>
+                                    ) : (
+                                        items.map((item, index) => (
+                                            <TableRow key={item.id}>
+                                                <TableCell align="center">{item.nombre} <Typography variant="caption" color="textSecondary">({item.marca?.nombre || 'Sin marca'})</Typography></TableCell>
+                                                <TableCell align="center">
+                                                    <TextField type="number" value={item.cantidad}
+                                                        onChange={(e) => handleItemCantidadChange(index, e.target.value)}
+                                                        size="small" sx={{ width: '90px' }}
+                                                        inputProps={{ min: 1, max: item.stock_disponible }}
+                                                    />
+                                                </TableCell>
+                                                <TableCell align="center">{formatCurrency(item.precio_unitario_venta)}</TableCell>
+                                                <TableCell align="center">{formatCurrency(item.subtotal)}</TableCell>
+                                                <TableCell align="center">
+                                                    <Tooltip title="Eliminar"><IconButton onClick={() => handleRemoveItem(index)} color="error" size="small"><DeleteIcon /></IconButton></Tooltip>
+                                                </TableCell>
+                                            </TableRow>
+                                        ))
+                                    )}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </Paper>
                 </Grid>
             </Grid>
 
